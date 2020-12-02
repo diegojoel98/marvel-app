@@ -1,0 +1,97 @@
+<section>
+    <div class="container-fluid">
+        <div class="row banner-md">
+            <div class="col-12">
+                <h1 class="text-white text-center title-banner-md title-section animate__animated animate__pulse">
+                    Búsqueda <i class="fas fa-search"></i>
+                </h1>
+            </div>
+        </div>
+    </div>
+</section><br>
+<section class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <form #searchComic="ngForm" class="form-inline my-2 my-lg-0 mx-auto">
+                <input class="form-control mr-sm-2" type="search" name="queryComics" placeholder="Buscar cómic"
+                    [(ngModel)]="queryComics" autofocus>
+                <button (click)="busquedaComic()" class="btn btn-outline-success my-2 my-sm-0">Buscar</button>
+            </form>
+            <form #searchPersonaje="ngForm" class="form-inline my-2 my-lg-0 mx-auto">
+                <input class="form-control mr-sm-2" type="search" name="queryPersonajes" placeholder="Buscar personaje"
+                    [(ngModel)]="queryPersonajes" autofocus>
+                <button (click)="busquedaPersonaje()" class="btn btn-outline-success my-2 my-sm-0">Buscar</button>
+            </form>
+        </div>
+    </div>
+</section><br>
+<h4 class="text-center mt-3 mb-3 text-muted">Resultados: </h4>
+<!--<div *ngIf="!resultado">
+    <p class="text-center h3 ml-4">Cargando ...</p>
+    <div class="d-flex justify-content-center">
+        <div class="spinner-border text-danger" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</div>-->
+<div class="container-fluid" *ngIf="!resultado && !resultadoPers">
+    <div class="row">
+        <div class="col-md-8">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="#">
+                        <img src="https://getuikit.com/v2/docs/images/placeholder_600x400.svg" alt="Imagen de cómic"
+                            class="img-fluid col-md-2" />
+                        <h4 class="ml-5 float-left col-md-7">Titulo del cómic</h4>
+                        <p class="font-large">Descripción corta</p>
+                    </a>
+                    <p class="ml-4 col-md-7 text-dark font-large">Descripción</p>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <article>
+                <div class="margin article-comic">
+                    <a href="#">
+                        <img src="https://i.pinimg.com/originals/8d/6b/5f/8d6b5f5b6dda9c502dfd76f820870fbb.jpg"
+                            alt="Imagen de personaje" class="img-fluid mx-auto d-block img-comic">
+                    </a>
+                    <a href="#" class="title-comic text-center btn text-white">Nombre del personaje</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
+<section class="container-fluid">
+    <div class="row">
+        <div class="col-md-8" *ngIf="resultado">
+            <ul class="list-group">
+                <li *ngFor="let elem of resultado.data.results; index as i;" class="list-group-item"
+                    [style.background-color]="(i % 2 === 0) ? '#f2f2f2': 'white'">
+                    <a [routerLink]="['/comic/', elem.id]">
+                        <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}"
+                            class="img-fluid col-md-2 img-query" />
+                        <h4 class="ml-5 float-left col-md-7">{{elem.title}}</h4>
+                        <p class="font-large">{{elem.variantDescription}}</p>
+                    </a>
+                    <p class="ml-4 col-md-7 text-dark font-large">{{elem.description}}</p>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4" *ngIf="resultadoPers">
+            <article *ngFor="let elem of resultadoPers.data.results; index as i;">
+                <div class="margin article-comic">
+                    <a [routerLink]="['/personaje/', elem.id]">
+                        <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.name}}"
+                            class="img-fluid mx-auto d-block img-comic">
+                    </a>
+                    <a [routerLink]="['/personaje/', elem.id]"
+                        class="title-comic text-center btn text-white">{{elem.name}}</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+<!--<section class="container-fluid" *ngIf="resultadoPers">
+    
+</section>-->

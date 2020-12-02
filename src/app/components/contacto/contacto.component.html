@@ -1,0 +1,70 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2 mb-3 mt-3" id="row">
+                <h1 class="text-center">Contacto</h1>
+
+                <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+                    <div class="form-group container">
+                        <label for="name">Nombre: </label>
+                        <input type="text" id="name" name="name" class="form-control border"
+                            [ngClass]="{'border-success': name.valid, 'border-danger': !name.valid && name.touched}"
+                            required title="Type your name" #name="ngModel" [(ngModel)]="user.name"
+                            pattern="^([a-zA-Z]+[,.]?[ ]?|[a-zA-Z]+['-]?)+$">
+                        <p class="text-danger" *ngIf="!name.valid && name.touched">El nombre no es válido</p>
+                        <label for="lastName">Apellido:</label>
+                        <input type="text" id="lastName" name="lastName" class="form-control border"
+                            [ngClass]="{'border-success': lastname.valid, 'border-danger': !lastname.valid && lastname.touched}"
+                            required title="Type your lastname" #lastname="ngModel" [(ngModel)]="user.lastname"
+                            pattern="^([a-zA-Z]+[,.]?[ ]?|[a-zA-Z]+['-]?)+$">
+                        <p class="text-danger" *ngIf="!lastname.valid && lastname.touched">El apellido no es válido</p>
+                        <label for="comment">Comentario:</label>
+                        <textarea name="comment" id="comment" cols="30" rows="3" class="form-control border"
+                            [ngClass]="{'border-success': comment.valid, 'border-danger': !comment.valid && comment.touched}"
+                            required title="Type your comment" #comment="ngModel" [(ngModel)]="user.comment"></textarea>
+                        <p class="text-danger" *ngIf="!comment.valid && comment.touched">El comentario está vacío</p>
+                        <br />
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="male" required
+                                [(ngModel)]="user.gender">
+                            <label class="form-check-label" for="male">
+                                Hombre
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="female"
+                                [(ngModel)]="user.gender">
+                            <label class="form-check-label" for="female">
+                                Mujer
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="other" value="other"
+                                [(ngModel)]="user.gender">
+                            <label class="form-check-label" for="other">
+                                Otro
+                            </label>
+                        </div><br>
+                        <input type="submit" class="btn btn-success mr-3" value="Submit" name="submit"
+                            [disabled]="userForm.invalid" [ngClass]="{'cursor-no-drop': userForm.invalid}">
+                        <input type="reset" class="btn btn-warning text-white mr-3" value="Reset" name="reset"
+                            [disabled]="!name.touched && !lastname.touched && !comment.touched"
+                            [ngClass]="{'cursor-no-drop': !name.touched && !lastname.touched && !comment.touched}"><br />
+                        <br />
+                    </div>
+                </form>
+                <div *ngIf="user.name">
+                    <h4>Tus datos son:</h4>
+                    <ul class="list-unstyled">
+                        <li>{{user.name}}</li>
+                        <li>{{user.lastname}}</li>
+                        <li>{{user.comment}}</li>
+                        <li>{{user.gender}}</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

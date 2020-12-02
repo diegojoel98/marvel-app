@@ -1,0 +1,52 @@
+<app-banner></app-banner>
+
+<div class="container">
+    <div *ngIf="!resultado">
+        <p class="text-center h5 ml-4">Cargando ...</p>
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border text-danger" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <app-comics></app-comics>
+        </div>
+
+        <app-personajes class="offset-md-1 col-md-4"></app-personajes>
+
+    </div>
+</div>
+
+
+<!--<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <h3 class="text-center">Personajes</h3>
+            <article class=" article-comic">
+                <img src="https://i.pinimg.com/originals/32/92/5e/32925e3718ee000e49c79f06f6c4389e.jpg" alt=""
+                    class="img-fluid img-comic">
+                <a href="#" class="title-comic text-center float-right btn text-white">Title</a>
+            </article><br />
+            <article class=" article-comic">
+                <img src="https://i.pinimg.com/originals/32/92/5e/32925e3718ee000e49c79f06f6c4389e.jpg" alt=""
+                    class="img-fluid img-comic">
+                <a href="#" class="title-comic text-center float-right btn text-white">Title</a>
+            </article><br />
+        </div>
+        <div class="col-md-3">
+            <h3 class="text-center"> .</h3>
+            <article class=" article-comic">
+                <img src="https://i.pinimg.com/originals/32/92/5e/32925e3718ee000e49c79f06f6c4389e.jpg" alt=""
+                    class="img-fluid img-comic">
+                <a href="#" class="title-comic text-center float-right btn text-white">Title</a>
+            </article><br>
+            <article class=" article-comic">
+                <img src="https://i.pinimg.com/originals/32/92/5e/32925e3718ee000e49c79f06f6c4389e.jpg" alt=""
+                    class="img-fluid img-comic">
+                <a href="#" class="title-comic text-center float-right btn text-white">Title</a>
+            </article><br />
+        </div>
+    </div>
+</div>-->

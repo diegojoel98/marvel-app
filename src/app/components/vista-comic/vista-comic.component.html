@@ -1,0 +1,40 @@
+<div *ngFor="let elem of resultado.data.results; index as i;" class="mt-2">
+    <article class="article-comic-vista">
+        <a>
+            <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.title}}"
+                class="img-fluid img-comic-vista mx-auto d-block mt-2">
+        </a>
+        <a class="title-comic title-section title-vista text-center btn text-white">{{elem.title | uppercase}}</a>
+        <p class="title-comic font-weight-bold text-center">{{elem.description}}</p>
+        <p class="title-comic font-weight-bold text-center">{{elem.variantDescription}}</p>
+        <p class="title-comic font-weight-bold text-white ml-3">Creadores: {{elem.creators.available}}</p>
+        <p class="title-comic font-weight-bold text-white ml-3">Personajes: {{elem.characters.available}}</p>
+        <p class="title-comic font-weight-bold text-white ml-3">Historias: {{elem.stories.available}}</p>
+        <p class="title-comic font-weight-bold text-white ml-3">Eventos: {{elem.events.available}}</p>
+    </article><br />
+
+    <div class="container-fluid">
+        <div *ngIf="!resultadoPersonajes">
+            <p class="text-center h3 ml-4">Cargando ...</p>
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border text-danger" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="resultadoPersonajes"><br>
+            <p class="title-comic title-section title-vista text-center">Personajes en el cómic</p>
+            <article class="col-md-3" *ngFor="let elem of resultadoPersonajes.data.results; index as i;">
+                <div class="margin article-comic blur">
+                    <a [routerLink]="['/personaje/', elem.id]">
+                        <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.name}}"
+                            class="img-fluid img-comic">
+                    </a>
+                    <a [routerLink]="['/personaje/', elem.id]"
+                        class="title-comic text-center float-right white-space btn text-white">{{elem.name}} </a>
+                </div>
+            </article>
+        </div>
+    </div><br>
+
+</div>

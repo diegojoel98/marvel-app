@@ -1,0 +1,36 @@
+<section>
+    <div class="container-fluid">
+        <div class="row banner-md">
+            <div class="col-12">
+                <h1 class="text-white text-center title-banner-md title-section animate__animated animate__pulse">
+                    Personajes <i class="fas fa-user-shield"></i></h1>
+            </div>
+        </div>
+    </div>
+</section><br>
+<div *ngIf="!resultado">
+    <p class="text-center h5 ml-4">Cargando ...</p>
+    <div class="d-flex justify-content-center">
+        <div class="spinner-border text-danger" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</div>
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <article class="col-md-3"
+                *ngFor="let elem of resultado.data.results | paginate: {itemsPerPage: 12, currentPage: p}">
+                <div class="margin article-comic blur">
+                    <a [routerLink]="['/personaje/', elem.id]">
+                        <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.name}}"
+                            class="img-fluid img-comic">
+                    </a>
+                    <a [routerLink]="['/personaje/', elem.id]"
+                        class="title-comic text-center float-right white-space btn text-white">{{elem.name}} </a>
+                </div>
+            </article>
+            <pagination-controls (pageChange)="p = $event" class="offset-md-4"></pagination-controls>
+        </div>
+    </div><br>
+</section>

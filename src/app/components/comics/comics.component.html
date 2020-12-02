@@ -1,0 +1,9 @@
+<h3 class="text-center mr-5"><a routerLink="/comics" class="text-decoration-none title-section">Cómics</a></h3>
+
+<article class="article-comic" *ngFor="let elem of resultado.data.results; index as i;">
+    <a [routerLink]="['/comic/', elem.id]">
+        <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.title}}"
+            class="img-fluid img-comic">
+    </a>
+    <a [routerLink]="['/comic/', elem.id]" class="title-comic text-center float-right btn text-white">{{elem.title}}</a>
+</article><br />
