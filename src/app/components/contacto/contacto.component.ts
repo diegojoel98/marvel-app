@@ -26,7 +26,6 @@ export class ContactoComponent implements OnInit {
     if (conf) {
       alert("Formulario enviado");
       window.location.href = "mailto:diegojoel98@gmail.com";
-      console.log(this.user);
     } else {
       event.preventDefault();
     }
