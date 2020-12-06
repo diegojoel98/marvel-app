@@ -27,8 +27,6 @@ export class VistaComicComponent implements OnInit {
     this._route.paramMap.subscribe((params: ParamMap) => {
       this.queryId = params.get('id');
     })
-    console.log(this.queryId);
-
 
     this._vistaComicService.comic(this.queryId).then((response) => {
       this.resultado = response;
