@@ -26,4 +26,36 @@ export class PersonajesPageComponent implements OnInit {
 
   }
 
+  nombre = () => {
+    this._servicioHomePersonajes.pagePersonajesName('').then((response) => {
+      this.resultado = response;
+    }, (error) => {
+      alert("Error: " + error.statusText)
+    })
+  }
+
+  nombreDes = () => {
+    this._servicioHomePersonajes.pagePersonajesNameDes('').then((response) => {
+      this.resultado = response;
+    }, (error) => {
+      alert("Error: " + error.statusText)
+    })
+  }
+
+  modificacion = () => {
+    this._servicioHomePersonajes.pagePersonajesMod('').then((response) => {
+      this.resultado = response;
+    }, (error) => {
+      alert("Error: " + error.statusText)
+    })
+  }
+
+  modificacionDes = () => {
+    this._servicioHomePersonajes.pagePersonajesModDes('').then((response) => {
+      this.resultado = response;
+    }, (error) => {
+      alert("Error: " + error.statusText)
+    })
+  }
+
 }

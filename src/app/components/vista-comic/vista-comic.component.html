@@ -1,4 +1,4 @@
-<div *ngFor="let elem of resultado.data.results; index as i;" class="mt-2">
+<div *ngFor="let elem of resultado?.data.results; index as i;" class="mt-2">
     <article class="article-comic-vista">
         <a>
             <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.title}}"
@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <div class="row" *ngIf="!resultadoPersonajes.data.results.length == 0;"><br>
+        <div class="row" *ngIf="!resultadoPersonajes?.data.results.length == 0;"><br>
             <p class="title-comic title-section title-vista text-center">Personajes en el cómic</p>
             <article class="col-md-3" *ngFor="let elem of resultadoPersonajes.data.results; index as i;">
                 <div class="margin article-comic blur">

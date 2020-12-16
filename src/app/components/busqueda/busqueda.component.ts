@@ -34,6 +34,7 @@ export class BusquedaComponent implements OnInit {
   busquedaComic = () => {
     this._buscarComicService.busquedaComic(this.queryComics).then((response) => {
       this.resultado = response;
+      console.log(this.resultado);
     }, (error) => {
       alert("Error: " + error.statusText)
     })
@@ -42,6 +43,7 @@ export class BusquedaComponent implements OnInit {
   busquedaPersonaje = () => {
     this._buscarPersonajeService.busquedaPersonaje(this.queryPersonajes).then((response) => {
       this.resultadoPers = response;
+      console.log(this.resultadoPers);
     }, (error) => {
       alert("Error: " + error.statusText)
     })

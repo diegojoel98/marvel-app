@@ -1,4 +1,4 @@
-<div *ngFor="let elem of resultado.data.results; index as i;" class="mt-2">
+<div *ngFor="let elem of resultado?.data.results; index as i;" class="mt-2">
     <article class="article-comic-vista">
         <a>
             <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.name}}"

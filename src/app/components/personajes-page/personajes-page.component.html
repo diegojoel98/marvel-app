@@ -5,6 +5,20 @@
                 <h1 class="text-white text-center title-banner-md title-section animate__animated animate__pulse">
                     Personajes <i class="fas fa-user-shield"></i></h1>
             </div>
+            <div class="offset-md-5">
+                <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary dropdown-toggle text-white" type="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ordenar personajes</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item btn" (click)="nombre()">Por nombre</a>
+                        <a class="dropdown-item btn" (click)="nombreDes()">Por nombre (descendente)</a>
+                        <a class="dropdown-item btn" (click)="modificacion()">Por fecha de modificación</a>
+                        <a class="dropdown-item btn" (click)="modificacionDes()">Por fecha de modificación
+                            (descendente)</a>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section><br>
@@ -20,8 +34,8 @@
     <div class="container-fluid">
         <div class="row">
             <article class="col-md-3"
-                *ngFor="let elem of resultado.data.results | paginate: {itemsPerPage: 12, currentPage: p}">
-                <div class="margin article-comic blur">
+                *ngFor="let elem of resultado?.data.results | paginate: {itemsPerPage: 12, currentPage: p}">
+                <div class="margin article-comic blur shadow-lg">
                     <a [routerLink]="['/personaje/', elem.id]">
                         <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.name}}"
                             class="img-fluid img-comic">

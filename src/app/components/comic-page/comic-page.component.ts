@@ -26,4 +26,53 @@ export class ComicPageComponent implements OnInit {
 
   }
 
+  titulo = () => {
+    this._servicioHomeComics.pageComicsTitulo('').then((response) => {
+      this.resultado = response;
+    }, (error) => {
+      alert("Error: " + error.statusText)
+    })
+  }
+
+  tituloDes = () => {
+    this._servicioHomeComics.pageComicsTituloDes('').then((response) => {
+      this.resultado = response;
+    }, (error) => {
+      alert("Error: " + error.statusText)
+    })
+  }
+
+  modificacion = () => {
+    this._servicioHomeComics.pageComicsMod('').then((response) => {
+      this.resultado = response;
+    }, (error) => {
+      alert("Error: " + error.statusText)
+    })
+  }
+
+  modificacionDes = () => {
+    this._servicioHomeComics.pageComicsModDes('').then((response) => {
+      this.resultado = response;
+    }, (error) => {
+      alert("Error: " + error.statusText)
+    })
+  }
+
+  venta = () => {
+    this._servicioHomeComics.pageComicsVenta('').then((response) => {
+      this.resultado = response;
+    }, (error) => {
+      alert("Error: " + error.statusText)
+    })
+  }
+
+  ventaDes = () => {
+    this._servicioHomeComics.pageComicsVentaDes('').then((response) => {
+      this.resultado = response;
+    }, (error) => {
+      alert("Error: " + error.statusText)
+    })
+  }
+
+
 }

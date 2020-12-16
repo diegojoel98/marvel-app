@@ -1,4 +1,9 @@
 /* Home Page */
+/*body {
+    background: #ef3b36; /* fallback for old browsers */
+    /*background: -webkit-linear-gradient(to left, #B1D0E3, #EEC0BF);*/ /* Chrome 10-25, Safari 5.1-6 */
+    /*background: linear-gradient(to left, #B1D0E3, #EEC0BF);
+}*/
 a.navbar-brand:hover {
     color: #ec1d24!important;
     font-weight: 700;
@@ -80,6 +85,10 @@ a.nav-link:hover, .activeLink {
     height: 40px;
     width: 40px;
     margin-top: 7px;
+}
+
+img.tama-redes:hover {
+    background-color: #7b1210;
 }
 
 @media screen and (max-width: 768px) {
