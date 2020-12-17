@@ -135,6 +135,31 @@ img.tama-redes:hover {
     white-space: pre-wrap;
 }
 
+@media (max-width: 768px) { 
+    .blur > a.title-comic {
+        visibility: visible;
+        color: #000!important;
+    }
+
+    .blur:hover {
+        background: #5187c4;;
+        transition: none;
+    }
+    
+    .blur:hover > a>img{
+        filter: blur(0px);
+    }
+    
+    .blur:hover > a.title-comic {
+        transform: none;
+        color: currentColor;
+        font-weight: 800;
+        font-size: 1.5em;
+        text-shadow: 4px 4px 5px #ffff;
+        visibility: visible;
+    }
+}
+
 /* Busqueda Page */
 .img-query:hover {
     transform: scale(1.3);
