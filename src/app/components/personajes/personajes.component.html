@@ -3,7 +3,7 @@
 <article class=" article-comic" *ngFor="let elem of resultado?.data.results; index as i;">
     <a [routerLink]="['/personaje/', elem.id]">
         <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.name}}"
-            class="img-fluid rounded mt-2 img-comic mx-auto d-block">
+            class="img-fluid rounded img-comic mx-auto d-block">
     </a>
-    <a [routerLink]="['/personaje/', elem.id]" class="title-comic text-center btn text-white">{{elem.name}}</a>
+    <p [routerLink]="['/personaje/', elem.id]" class="title-comic btn text-white">{{elem.name}}</p>
 </article><br />

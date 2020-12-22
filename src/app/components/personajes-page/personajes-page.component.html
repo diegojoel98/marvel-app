@@ -40,11 +40,10 @@
                         <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.name}}"
                             class="img-fluid img-comic">
                     </a>
-                    <a [routerLink]="['/personaje/', elem.id]"
-                        class="title-comic text-center float-right white-space btn text-white">{{elem.name}} </a>
+                    <p class="title-comic white-space text-white">{{elem.name}}</p>
                 </div>
             </article>
-            <pagination-controls (pageChange)="p = $event" class="offset-md-4"></pagination-controls>
+            <pagination-controls (pageChange)="p = $event" class="offset-md-4 m"></pagination-controls>
         </div>
     </div><br>
 </section>

@@ -28,7 +28,7 @@
         </div>
     </div>
 </section><br>
-<section>
+<section class="container">
     <div class="container-fluid">
         <div *ngIf="!resultado">
             <p class="text-center h3 ml-4">Cargando ...</p>
@@ -46,8 +46,8 @@
                         <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.title}}"
                             class="img-fluid mx-auto d-block img-comic">
                     </a>
-                    <a [routerLink]="['/comic/', elem.id]"
-                        class="title-comic text-center btn text-white">{{elem.title}}</a>
+                    <p
+                        class="text-center btn text-white">{{elem.title}}</p>
                 </div>
             </article>
             <pagination-controls (pageChange)="p = $event" class="offset-md-4 mt-3"></pagination-controls>
