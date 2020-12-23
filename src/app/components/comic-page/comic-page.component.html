@@ -29,7 +29,7 @@
         </div>
     </div>
 </section><br>
-<section>
+<section class="container">
     <div class="container-fluid">
         <div *ngIf="!resultado">
             <p class="text-center h3 ml-4">Cargando ...</p>
@@ -47,8 +47,9 @@
                         <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.title}}"
                             class="img-fluid mx-auto d-block img-comic mt-2">
                     </a>
-                    <a [routerLink]="['/comic/', elem.id]"
-                        class="title-comic mx-auto d-block btn text-white">{{elem.title}}</a>
+
+                    <p class="text-center btn text-white">{{elem.title}}</p>
+
                 </div>
             </article>
             <a href="/comics#page" class="offset-md-4 mt-3">

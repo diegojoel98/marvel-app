@@ -78,19 +78,35 @@ a.nav-link:hover {
 .article-comic, .article-comic-vista {
     background-color: #548bca;    
     border: 6px solid #ff0000;
+    width: 100%;
+    position: relative;
+    overflow-y: hidden;
 }
 
 .article-comic:hover {
     transform: scale(1.02);
     transition: all 0.3s ease-in;
+    border: 6px solid #ffffff;
 }
 
-.img-comic {
-    height: 220px;
-    width: 190px;
+
+.article-comic img{
+    max-width: 100%;
+    object-fit: contain;
 }
 
-.title-comic {
+.article-comic p{
+    position:absolute;
+    top: 40%;
+    left: 0;
+    padding: 15px 10px;
+    margin: 0;
+    background-color: rgb(0, 0, 0, 0.75);
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+}
+.title-comic{   
     font-size: 1.2em;
 }
 
@@ -238,4 +254,15 @@ textarea#comment.form-control, textarea#content.form-control{
 /* Page not found */
 .img-not-found {
     height: 550px;
+}
+
+body{
+    background: #b92b27;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.container{
+    margin: 0 auto
 }
