@@ -76,7 +76,7 @@ a.nav-link:hover, .activeLink {
 
 .article-comic p{
     position:absolute;
-    bottom: 0;
+    top: 40%;
     left: 0;
     padding: 15px 10px;
     margin: 0;
@@ -85,7 +85,6 @@ a.nav-link:hover, .activeLink {
     text-align: center;
     text-transform: uppercase;
 }
-
 .title-comic{   
     font-size: 1.2em;
 }
