@@ -117,8 +117,13 @@
               "devServerTarget": "marvel-app:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "marvel-app"
 }
