@@ -1,6 +1,6 @@
 <section>
     <div class="container-fluid">
-        <div class="row banner-md">
+        <div class="row banner-md" id="page">
             <div class="col-12">
                 <h1 class="text-white text-center title-banner-md title-section animate__animated animate__pulse">
                     Personajes <i class="fas fa-user-shield"></i></h1>
@@ -12,9 +12,10 @@
                     <div class="dropdown-menu">
                         <a class="dropdown-item btn" (click)="nombre()">Por nombre</a>
                         <a class="dropdown-item btn" (click)="nombreDes()">Por nombre (descendente)</a>
-                        <a class="dropdown-item btn" (click)="modificacion()">Por fecha de modificación</a>
+                        <a class="dropdown-item btn" (click)="modificacion()">Por fecha de modificación (más
+                            reciente)</a>
                         <a class="dropdown-item btn" (click)="modificacionDes()">Por fecha de modificación
-                            (descendente)</a>
+                            (menos reciente)</a>
 
                     </div>
                 </div>
@@ -35,15 +36,22 @@
         <div class="row">
             <article class="col-md-3"
                 *ngFor="let elem of resultado?.data.results | paginate: {itemsPerPage: 12, currentPage: p}">
-                <div class="margin article-comic blur shadow-lg">
+                <div [routerLink]="['/personaje/', elem.id]" class="margin article-comic blur shadow-lg pointer">
                     <a [routerLink]="['/personaje/', elem.id]">
                         <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.name}}"
-                            class="img-fluid img-comic">
+                            class="img-fluid img-md img-comic">
                     </a>
-                    <p class="title-comic white-space text-white">{{elem.name}}</p>
+
+                    <a [routerLink]="['/personaje/', elem.id]"
+                        class="title-comic text-center float-right white-space btn text-med text-white">{{elem.name}}
+                    </a>
                 </div>
             </article>
-            <pagination-controls (pageChange)="p = $event" class="offset-md-4 m"></pagination-controls>
+            <a href="/personajes#page" class="offset-md-4 mt-3">
+                <pagination-controls (pageChange)="p = $event" class="offset-md-4 mt-3" previousLabel="Anterior"
+                    nextLabel="Siguiente" screenReaderPaginationLabel="Pagination">
+                </pagination-controls>
+            </a>
         </div>
     </div><br>
 </section>

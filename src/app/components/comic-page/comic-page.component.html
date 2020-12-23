@@ -1,6 +1,6 @@
 <section>
     <div class="container-fluid">
-        <div class="row banner-md">
+        <div class="row banner-md" id="page">
             <div class="col-12">
                 <h1 class="text-white text-center title-banner-md title-section animate__animated animate__pulse">Cómics
                     <i class="fas fa-book-open"></i>
@@ -14,11 +14,12 @@
                     <div class="dropdown-menu">
                         <a class="dropdown-item btn" (click)="titulo()">Por título</a>
                         <a class="dropdown-item btn" (click)="tituloDes()">Por título (descendente)</a>
-                        <a class="dropdown-item btn" (click)="modificacion()">Por fecha de modificación</a>
+                        <a class="dropdown-item btn" (click)="modificacion()">Por fecha de modificación (más
+                            reciente)</a>
                         <a class="dropdown-item btn" (click)="modificacionDes()">Por fecha de modificación
-                            (descendente)</a>
-                        <a class="dropdown-item btn" (click)="venta()">Por fecha de venta</a>
-                        <a class="dropdown-item btn" (click)="ventaDes()">Por fecha de venta (descendente)</a>
+                            (menos reciente)</a>
+                        <a class="dropdown-item btn" (click)="venta()">Por fecha de venta (antiguos)</a>
+                        <a class="dropdown-item btn" (click)="ventaDes()">Por fecha de venta (recientes)</a>
                         <!--<div role="separator" class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Separated link</a>-->
                     </div>
@@ -44,13 +45,18 @@
                 <div class="margin article-comic">
                     <a [routerLink]="['/comic/', elem.id]">
                         <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.title}}"
-                            class="img-fluid mx-auto d-block img-comic">
+                            class="img-fluid mx-auto d-block img-comic mt-2">
                     </a>
-                    <p
-                        class="text-center btn text-white">{{elem.title}}</p>
+
+                    <p class="text-center btn text-white">{{elem.title}}</p>
+
                 </div>
             </article>
-            <pagination-controls (pageChange)="p = $event" class="offset-md-4 mt-3"></pagination-controls>
+            <a href="/comics#page" class="offset-md-4 mt-3">
+                <pagination-controls (pageChange)="p = $event" class="offset-md-4 mt-3" previousLabel="Anterior"
+                    nextLabel="Siguiente" screenReaderPaginationLabel="Pagination">
+                </pagination-controls>
+            </a>
         </div>
     </div><br>
 </section>
