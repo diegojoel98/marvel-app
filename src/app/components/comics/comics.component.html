@@ -1,9 +1,12 @@
-<h3 class="text-center mr-5"><a routerLink="/comics" class="text-decoration-none title-section">Cómics</a></h3>
+<h3 class="text-center mr-5"><a routerLink="/comics" class="text-decoration-none title-section title-home">Cómics</a>
+</h3>
 
-<article class="article-comic" *ngFor="let elem of resultado?.data.results; index as i;">
+<article [routerLink]="['/comic/', elem.id]" class="article-comic pointer"
+    *ngFor="let elem of resultado?.data.results; index as i;">
     <a [routerLink]="['/comic/', elem.id]">
         <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.title}}"
-            class="img-fluid img-comic">
+            class="img-fluid img-comic img-md">
     </a>
-    <a [routerLink]="['/comic/', elem.id]" class="title-comic text-center float-right btn text-white">{{elem.title}}</a>
+    <a [routerLink]="['/comic/', elem.id]"
+        class="title-comic text-center float-right text-md btn text-white">{{elem.title}}</a>
 </article><br />

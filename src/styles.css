@@ -1,9 +1,14 @@
 /* Home Page */
-/*body {
+body {
     background: #ef3b36; /* fallback for old browsers */
-    /*background: -webkit-linear-gradient(to left, #B1D0E3, #EEC0BF);*/ /* Chrome 10-25, Safari 5.1-6 */
-    /*background: linear-gradient(to left, #B1D0E3, #EEC0BF);
-}*/
+    background: -webkit-linear-gradient(to left, #B1D0E3, #EEC0BF); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #B1D0E3, #EEC0BF);
+    
+    /*background: #b92b27;*/  /* fallback for old browsers */
+    /*background: -webkit-linear-gradient(to right, #1565C0, #b92b27);*/  /* Chrome 10-25, Safari 5.1-6 */
+    /*background: linear-gradient(to right, #1565C0, #b92b27);*/ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 a.navbar-brand:hover {
     color: #ec1d24!important;
     font-weight: 700;
@@ -15,12 +20,28 @@ a.navbar-brand > img:hover {
     transition: all 0.5s ease-out;
 }
 
+.nav-link {
+    font-size: 16.5px;
+}
+
 a.nav-link:hover, .activeLink {
     color: #ff0000!important;
 }
 
+a.nav-link:hover {
+    text-shadow: 1px 1px rgb(76, 79, 235);
+}
+
 .title-section {
     font-family: 'Permanent Marker', cursive!important;
+}
+
+.text-description {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.title-home {
+    font-size: 1.15em;
 }
 
 .banner, .banner-md {
@@ -73,6 +94,10 @@ a.nav-link:hover, .activeLink {
     font-size: 1.2em;
 }
 
+.title-comic:hover {
+    text-shadow: 1px 1px #ccc;
+}
+
 .bg-footer {
     background-color: #8a1212;
 }
@@ -100,6 +125,25 @@ img.tama-redes:hover {
 
     .text-footer {
         margin: 0px;
+    }
+
+    .text-med {
+        margin: auto;
+        display: block;
+        float: none!important;
+    }
+
+    .img-comic {
+        margin-top: 0.5rem!important;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+    .img-md, .text-md{
+        margin: auto;
+        display: block;
+        float: none!important;
     }
 }
 
@@ -173,6 +217,10 @@ textarea#comment.form-control, textarea#content.form-control{
 
 .cursor-no-drop {
     cursor: no-drop;
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 /* Vista-Comic/Personaje page */

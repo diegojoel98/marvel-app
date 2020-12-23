@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
         <a class="navbar-brand" routerLink="/home">
             <img src="https://cdn6.aptoide.com/imgs/0/1/5/015c85387bf3f8789c5c15f5a2dc3b1b_icon.png" alt=""
-                class="tama-redes"> Marvel
+                class="tama-redes mt-0 d-inline"> Marvel
             App</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,19 +12,24 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-white" routerLink="/home" routerLinkActive="activeLink">Home</a>
+                    <a class="nav-link text-white" data-toggle="collapse" data-target=".navbar-collapse.show"
+                        routerLink="/home" routerLinkActive="activeLink">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" routerLink="/comics" routerLinkActive="activeLink">Cómics</a>
+                    <a class="nav-link text-white" data-toggle="collapse" data-target=".navbar-collapse.show"
+                        routerLink="/comics" routerLinkActive="activeLink">Cómics</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" routerLink="/personajes" routerLinkActive="activeLink">Personajes</a>
+                    <a class="nav-link text-white" data-toggle="collapse" data-target=".navbar-collapse.show"
+                        routerLink="/personajes" routerLinkActive="activeLink">Personajes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" routerLink="/busqueda" routerLinkActive="activeLink">Búsqueda</a>
+                    <a class="nav-link text-white" data-toggle="collapse" data-target=".navbar-collapse.show"
+                        routerLink="/busqueda" routerLinkActive="activeLink">Búsqueda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" routerLink="/contacto" routerLinkActive="activeLink">Contacto</a>
+                    <a class="nav-link text-white" data-toggle="collapse" data-target=".navbar-collapse.show"
+                        routerLink="/contacto" routerLinkActive="activeLink">Contacto</a>
                 </li>
             </ul>
             <!--<form class="form-inline my-2 my-lg-0">

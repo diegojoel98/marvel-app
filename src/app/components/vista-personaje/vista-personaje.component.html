@@ -5,7 +5,7 @@
                 class="img-fluid img-comic-vista mx-auto d-block mt-2">
         </a>
         <a class="title-comic title-section title-vista text-center btn text-white">{{elem.name | uppercase}}</a>
-        <p class="title-comic font-weight-bold text-center">{{elem.description}}</p>
+        <p class="title-comic font-weight-bold text-center text-description">{{elem.description}}</p>
         <p class="title-comic font-weight-bold text-white ml-3">Cómics: {{elem.comics.available}}</p>
         <p class="title-comic font-weight-bold text-white ml-3">Series: {{elem.series.available}}</p>
         <p class="title-comic font-weight-bold text-white ml-3">Historias: {{elem.stories.available}}</p>
@@ -22,14 +22,15 @@
         </div>
         <div class="row" *ngIf="resultadoComics"><br>
             <p class="title-comic title-section title-vista text-center">Cómics</p>
-            <article class="col-md-4" *ngFor="let elem of resultadoComics.data.results;">
+            <article [routerLink]="['/comic/', elem.id]" class="col-md-4 pointer"
+                *ngFor="let elem of resultadoComics.data.results;">
                 <div class="margin article-comic">
                     <a [routerLink]="['/comic/', elem.id]">
                         <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.title}}"
-                            class="img-fluid mx-auto d-block img-comic">
+                            class="img-fluid mx-auto d-block mt-2 img-comic">
                     </a>
                     <a [routerLink]="['/comic/', elem.id]"
-                        class="title-comic text-center btn text-white">{{elem.title}}</a>
+                        class="title-comic mx-auto d-block btn text-white">{{elem.title}}</a>
                 </div>
             </article>
         </div>

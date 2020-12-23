@@ -45,7 +45,7 @@
         <div class="col-md-8" *ngIf="resultado">
             <ul class="list-group">
                 <li *ngFor="let elem of resultado.data.results; index as i;" class="list-group-item"
-                    [style.background-color]="(i % 2 === 0) ? '#f2f2f2': 'white'">
+                    [style.background-color]="(i % 2 === 0) ? '#B1D0E3': '#EEC0BF'">
                     <a [routerLink]="['/comic/', elem.id]">
                         <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}"
                             class="img-fluid col-md-2 img-query" />
@@ -57,7 +57,8 @@
             </ul>
         </div>
         <div class="col-md-4" *ngIf="resultadoPers">
-            <article *ngFor="let elem of resultadoPers.data.results; index as i;">
+            <article [routerLink]="['/personaje/', elem.id]" class="pointer"
+                *ngFor="let elem of resultadoPers.data.results; index as i;">
                 <div class="margin article-comic">
                     <a [routerLink]="['/personaje/', elem.id]">
                         <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.name}}"

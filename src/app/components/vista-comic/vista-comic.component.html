@@ -5,8 +5,8 @@
                 class="img-fluid img-comic-vista mx-auto d-block mt-2">
         </a>
         <a class="title-comic title-section title-vista text-center btn text-white">{{elem.title | uppercase}}</a>
-        <p class="title-comic font-weight-bold text-center">{{elem.description}}</p>
-        <p class="title-comic font-weight-bold text-center">{{elem.variantDescription}}</p>
+        <p class="title-comic font-weight-bold text-center text-description">{{elem.description}}</p>
+        <p class="title-comic font-weight-bold text-center text-description">{{elem.variantDescription}}</p>
         <p class="title-comic font-weight-bold text-white ml-3">Creadores: {{elem.creators.available}}</p>
         <p class="title-comic font-weight-bold text-white ml-3">Personajes: {{elem.characters.available}}</p>
         <p class="title-comic font-weight-bold text-white ml-3">Historias: {{elem.stories.available}}</p>
@@ -25,7 +25,7 @@
         <div class="row" *ngIf="!resultadoPersonajes?.data.results.length == 0;"><br>
             <p class="title-comic title-section title-vista text-center">Personajes en el cómic</p>
             <article class="col-md-3" *ngFor="let elem of resultadoPersonajes.data.results; index as i;">
-                <div class="margin article-comic blur">
+                <div [routerLink]="['/personaje/', elem.id]" class="margin article-comic blur pointer">
                     <a [routerLink]="['/personaje/', elem.id]">
                         <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.name}}"
                             class="img-fluid img-comic">
