@@ -6,19 +6,19 @@
 
                 <form (ngSubmit)="onSubmit()" #userForm="ngForm">
                     <div class="form-group container">
-                        <label for="name">Nombre: </label>
+                        <label for="name" class="text-white">Nombre: </label>
                         <input type="text" id="name" name="name" class="form-control border"
                             [ngClass]="{'border-success': name.valid, 'border-danger': !name.valid && name.touched}"
                             required title="Type your name" #name="ngModel" [(ngModel)]="user.name"
                             pattern="^([a-zA-Z]+[,.]?[ ]?|[a-zA-Z]+['-]?)+$">
                         <p class="text-danger" *ngIf="!name.valid && name.touched">El nombre no es válido</p>
-                        <label for="lastName">Apellido:</label>
+                        <label for="lastName" class="text-white">Apellido:</label>
                         <input type="text" id="lastName" name="lastName" class="form-control border"
                             [ngClass]="{'border-success': lastname.valid, 'border-danger': !lastname.valid && lastname.touched}"
                             required title="Type your lastname" #lastname="ngModel" [(ngModel)]="user.lastname"
                             pattern="^([a-zA-Z]+[,.]?[ ]?|[a-zA-Z]+['-]?)+$">
                         <p class="text-danger" *ngIf="!lastname.valid && lastname.touched">El apellido no es válido</p>
-                        <label for="comment">Comentario:</label>
+                        <label for="comment" class="text-white">Comentario:</label>
                         <textarea name="comment" id="comment" cols="30" rows="3" class="form-control border"
                             [ngClass]="{'border-success': comment.valid, 'border-danger': !comment.valid && comment.touched}"
                             required title="Type your comment" #comment="ngModel" [(ngModel)]="user.comment"></textarea>
@@ -28,21 +28,21 @@
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="gender" id="male" value="male" required
                                 [(ngModel)]="user.gender">
-                            <label class="form-check-label" for="male">
+                            <label class="form-check-label text-white" for="male">
                                 Hombre
                             </label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="gender" id="female" value="female"
                                 [(ngModel)]="user.gender">
-                            <label class="form-check-label" for="female">
+                            <label class="form-check-label text-white" for="female">
                                 Mujer
                             </label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="gender" id="other" value="other"
                                 [(ngModel)]="user.gender">
-                            <label class="form-check-label" for="other">
+                            <label class="form-check-label text-white" for="other">
                                 Otro
                             </label>
                         </div><br>

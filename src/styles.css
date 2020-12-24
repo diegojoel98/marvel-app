@@ -78,19 +78,35 @@ a.nav-link:hover {
 .article-comic, .article-comic-vista {
     background-color: #548bca;    
     border: 6px solid #ff0000;
+    width: 100%;
+    position: relative;
+    overflow-y: hidden;
 }
 
 .article-comic:hover {
     transform: scale(1.02);
     transition: all 0.3s ease-in;
+    border: 6px solid #ffffff;
 }
 
-.img-comic {
-    height: 220px;
-    width: 190px;
+
+.article-comic img{
+    max-width: 100%;
+    object-fit: contain;
 }
 
-.title-comic {
+.article-comic p{
+    position:absolute;
+    top: 40%;
+    left: 0;
+    padding: 15px 10px;
+    margin: 0;
+    background-color: rgb(0, 0, 0, 0.75);
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+}
+.title-comic{   
     font-size: 1.2em;
 }
 
@@ -133,10 +149,6 @@ img.tama-redes:hover {
         float: none!important;
     }
 
-    .img-comic {
-        margin-top: 0.5rem!important;
-    }
-
 }
 
 @media screen and (max-width: 1200px) {
@@ -148,9 +160,7 @@ img.tama-redes:hover {
 }
 
 /* Comic Page */
-.margin {
-    margin: 10px;
-}
+
 
 /* Personajes Page */
 .blur:hover {
@@ -162,12 +172,12 @@ img.tama-redes:hover {
     filter: blur(5px);
 }
 
-.blur > a.title-comic {
+/*.blur > a.title-comic {
     visibility: hidden;
-}
+}*/
 
 .blur:hover > a.title-comic {
-    transform: translateX(-30px) translateY(-100px);
+    transform: translateX(0px) translateY(-50px);
     color: #000!important;
     font-weight: 800;
     font-size: 1.5em;
@@ -210,6 +220,16 @@ img.tama-redes:hover {
     transition: all 0.5s ease-in;
 }
 
+@media (max-width: 768px) {
+
+    .form-inline1, .form-control1 {
+        display: inline-block!important;
+        width: 100%!important;
+        vertical-align: middle!important;
+    }
+
+}
+
 /* Contacto Page */
 textarea#comment.form-control, textarea#content.form-control{
     min-height: 50px;
@@ -231,11 +251,22 @@ textarea#comment.form-control, textarea#content.form-control{
 }
 
 .img-comic-vista {
-    height: 290px;
-    width: 260px;
+    height: 350px;
+    width: 280px;
 }
 
 /* Page not found */
 .img-not-found {
     height: 550px;
+}
+
+body{
+    background: #b92b27;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.container{
+    margin: 0 auto
 }
