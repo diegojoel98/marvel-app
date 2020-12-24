@@ -228,6 +228,11 @@ img.tama-redes:hover {
         vertical-align: middle!important;
     }
 
+    .img-query:hover {
+        transform: none;
+        transition: none;
+    }
+
 }
 
 /* Contacto Page */
