@@ -1,7 +1,7 @@
 export interface InterfaceHomeComics {
     "code": number,
     "status": string,
-    "copyright": string,
+    "attributionText": string,
     "data": {
         "results": Array<
             {
