@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-12 mb-3" id="row">
+            <h1 class=" text-center mb-4 mt-3">{{comment?.title}}</h1>
+            <hr />
+            <img src="{{url + 'get-image/' + comment?.image}}" alt="{{comment.title}}"
+                class="img-fluid mx-auto d-block height220" width="650px" *ngIf="comment?.image">
+            <img src="../../../assets/img/default.jpg" alt="{{comment?.title}}"
+                class="img-fluid mx-auto d-block height220" width="650px" height="220px" *ngIf="!comment?.image">
+            <p class="mt-2 text-warning">{{comment?.date | amLocale: 'es' | amTimeAgo }}</p>
+            <div class="mt-2 text-justify text-white">{{comment?.content}}</div>
+            <div class="mt-5">
+                <a [routerLink]="['/foro/editar-comentario', comment?._id]"
+                    class="btn btn-warning text-white mr-4 font-weight-bold">
+                    Editar </a>
+
+                <a (click)="delete(comment._id)" class="btn btn-danger mx-auto text-white font-weight-bold">Eliminar</a>
+
+                <button (click)="genQR()" class="btn btn-info ml-4">Generar QR del comentario
+                    <qrcode *ngIf="qrdata" [qrdata]="myUrl" [width]="128" [errorCorrectionLevel]="'M'">
+                    </qrcode>
+                </button>
+                <!--<span id="qr"></span>
+                    <script>
+                        window.onload = function () {
+                            document.getElementById('qr').innerHTML = '<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + myUrl + '" />';
+                        }
+                    </script>-->
+                <button (click)="genPDF()" class="btn btn-danger ml-1">Generar PDF</button>
+                <button (click)="exportExcel()" class="btn btn-success ml-1">Generar Excel</button>
+                <table id="excel-table" hidden>
+                    <tr>
+                        <th>Id</th>
+                        <th>Titulo</th>
+                        <th>Contenido</th>
+                        <th>Imagen</th>
+                    </tr>
+                    <tr>
+                        <td>{{comment._id}}</td>
+                        <td>{{comment.title}}</td>
+                        <td>{{comment.content}}</td>
+                        <td>{{comment.image}}</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-12 mb-3" id="row">
+                <h2 class="text-center mt-4">Nuevo comentario</h2>
+
+                <form (ngSubmit)="onSubmit()" #commentForm="ngForm">
+                    <div class="form-group container">
+                        <label for="title" class="text-white">Titulo: </label>
+                        <input type="text" id="title" name="title" class="form-control border"
+                            [ngClass]="{'border-success': title.valid, 'border-danger': !title.valid && title.touched}"
+                            required title="Escribe el titulo de tu comentario" #title="ngModel"
+                            [(ngModel)]="comment.title">
+                        <p class="text-warning" *ngIf="!title.valid && title.touched">El titulo no es válido</p><br>
+
+                        <label for="content" class="text-white">Contenido: </label>
+                        <textarea name="content" id="content" cols="30" rows="3" class="form-control border"
+                            [ngClass]="{'border-success': content.valid, 'border-danger': !content?.valid && content.touched}"
+                            required title="Escribe el contenido de tu comentario, se respetuoso" #content="ngModel"
+                            [(ngModel)]="comment.content"></textarea>
+                        <p class="text-warning" *ngIf="!content.valid && content.touched">El contenido está vacío</p>
+                        <br />
+
+                        <label for="file0" class="text-white">Imagen (opcional): </label><br />
+                        <angular-file-uploader [config]="afuConfig" (ApiResponse)="imageUpload($event)">
+                        </angular-file-uploader><br />
+
+                        <input type="submit" class="btn btn-success mr-2" value="Guardar" name="submit"
+                            [disabled]="commentForm.invalid" [ngClass]="{'cursor-no-drop': commentForm.invalid}">
+                        <input type="reset" class="btn btn-warning" value="Limpiar" name="reset"
+                            [disabled]="!title.touched && !content.touched"
+                            [ngClass]="{'cursor-no-drop': !title.touched && !content.touched}"><br /> <br />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

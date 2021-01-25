@@ -50,7 +50,8 @@
                             [disabled]="userForm.invalid" [ngClass]="{'cursor-no-drop': userForm.invalid}">
                         <input type="reset" class="btn btn-warning text-white mr-3" value="Reset" name="reset"
                             [disabled]="!name.touched && !lastname.touched && !comment.touched"
-                            [ngClass]="{'cursor-no-drop': !name.touched && !lastname.touched && !comment.touched}"><br />
+                            [ngClass]="{'cursor-no-drop': !name.touched && !lastname.touched && !comment.touched}">
+                        <br />
                         <br />
                     </div>
                 </form>
@@ -63,6 +64,9 @@
                         <li>{{user.gender}}</li>
                     </ul>
                 </div>
+                <button (click)="genQR()" class="btn btn-info ml-3">Generar QR<qrcode *ngIf="qrdata"
+                        [qrdata]="'localhost:4200/contacto'" [width]="128" [errorCorrectionLevel]="'M'">
+                    </qrcode> </button>
 
             </div>
         </div>

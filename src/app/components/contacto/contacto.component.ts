@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ContactoComponent implements OnInit {
 
   public user: any;
+  public qrdata: boolean
 
   constructor() {
     this.user = {
@@ -28,6 +29,14 @@ export class ContactoComponent implements OnInit {
       window.location.href = "mailto:diegojoel98@gmail.com";
     } else {
       event.preventDefault();
+    }
+  }
+
+  genQR() {
+    if (!this.qrdata) {
+      this.qrdata = true;
+    } else {
+      this.qrdata = false;
     }
   }
 

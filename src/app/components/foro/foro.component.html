@@ -1,0 +1,80 @@
+<section>
+    <div class="container-fluid">
+        <div class="row banner-md" id="page">
+            <div class="col-12">
+                <h1 class="text-white text-center title-banner-md title-section animate__animated animate__pulse">
+                    Foro <i class="far fa-comments"></i></h1>
+
+                <div class="col-md-12">
+                    <button (click)="genQR()" class="btn btn-info mx-auto d-block">Generar QR <qrcode *ngIf="qrdata"
+                            [qrdata]="'localhost:4200/foro'" [width]="128" [errorCorrectionLevel]="'M'">
+                        </qrcode> </button>
+                    <!--<span id="qr"></span>
+                    <script>
+                        window.onload = function () {
+                            document.getElementById('qr').innerHTML = '<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + myUrl + '" />';
+                        }
+                    </script>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3 pb-2 border-bottom">
+        <div class="row">
+            <div class="col-md-6">
+                <button [routerLink]="['/foro/crear-comentario']" class="btn btn-success mx-auto d-block mb-2">Crear
+                    comentario</button>
+            </div>
+            <div class="col-md-6">
+                <form class="form-inline ml-5" #searchForm="ngForm" (ngSubmit)="goSearch()">
+                    <input class="form-control mr-sm-2" type="search" name="search" [(ngModel)]="queryString"
+                        placeholder="Buscar comentario" aria-label="Search" />
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section><br>
+<div class="container">
+    <div *ngIf="!comments" class="d-flex justify-content-center">
+        <div class="spinner-border text-warning" role="status">
+            <span class="sr-only">Cargando...</span>
+        </div> <span class="text-white"> Cargando...</span>
+    </div>
+
+    <div *ngIf="comments?.length == 0" class="text-center title">
+        Aún no hay comentarios, intenta más tarde...
+    </div>
+
+    <div class="row">
+        <article [routerLink]="['/foro/comentario/', comment._id]" class="col-md-6 text-white mt-3 mb-2"
+            *ngFor="let comment of comments">
+            <img *ngIf="comment.image" src="{{url + 'get-image/' + comment.image}}" alt="{{comment.title}}"
+                class="img-responsive float-left pointer mr-2" height="150px" width="200px">
+            <img *ngIf="!comment.image" src="../../../assets/img/default.jpg" alt="{{comment.title}}"
+                class="img-responsive float-left pointer mr-2" height="150px" width="200px">
+            <p class="font-weight-bold pointer"> {{comment.title}}</p>
+            <p class="text-muted"> {{comment.date | amLocale: 'es' | amTimeAgo}}</p>
+            <p class="pointer"> {{comment.content}}</p>
+            <a [routerLink]="['/foro/comentario/', comment._id]" class="pointer"> Leer más</a><br>
+        </article><br><br>
+    </div>
+</div>
+<div class="container mt-3">
+    <button (click)="exportExcel()" class="btn btn-success mx-auto d-block">Exportar a Excel</button>
+
+    <table id="excel-table" hidden>
+        <tr>
+            <th>Id</th>
+            <th>Titulo</th>
+            <th>Contenido</th>
+            <th>Imagen</th>
+        </tr>
+        <tr *ngFor="let comment of comments">
+            <td>{{comment._id}}</td>
+            <td>{{comment.title}}</td>
+            <td>{{comment.content}}</td>
+            <td>{{comment.image}}</td>
+        </tr>
+    </table>
+</div>

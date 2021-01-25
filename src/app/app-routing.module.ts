@@ -9,6 +9,11 @@ import { HomeComponent } from './components/home/home.component';
 import { VistaPersonajeComponent } from './components/vista-personaje/vista-personaje.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { VistaComicComponent } from './components/vista-comic/vista-comic.component';
+import { ForoComponent } from './components/foro/foro.component';
+import { CommentComponent } from './components/comment/comment.component';
+import { SearchCommentComponent } from './components/search-comment/search-comment.component';
+import { CreateCommentComponent } from './components/create-comment/create-comment.component';
+import { CommentEditComponent } from './components/comment-edit/comment-edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -19,6 +24,11 @@ const routes: Routes = [
   { path: 'contacto', component: ContactoComponent },
   { path: 'personaje/:id', component: VistaPersonajeComponent },
   { path: 'comic/:id', component: VistaComicComponent },
+  { path: 'foro', component: ForoComponent },
+  { path: 'foro/comentario/:id', component: CommentComponent },
+  { path: 'foro/buscar-comentario/:query', component: SearchCommentComponent },
+  { path: 'foro/crear-comentario', component: CreateCommentComponent },
+  { path: 'foro/editar-comentario/:id', component: CommentEditComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

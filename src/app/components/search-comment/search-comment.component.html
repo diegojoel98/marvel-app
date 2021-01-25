@@ -1,0 +1,44 @@
+<section>
+    <div class="container-fluid">
+        <div class="row banner-md" id="page">
+            <div class="col-12">
+                <h1 class="text-white text-center title-banner-md title-section animate__animated animate__pulse">
+                    Búsqueda: "{{query}}" <i class="far fa-comments"></i></h1>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3 pb-2 border-bottom">
+        <div class="row">
+            <div class="col-md-6">
+                <button [routerLink]="['/foro/crear-comentario']" class="btn btn-success mx-auto d-block mb-2">Crear
+                    comentario</button>
+            </div>
+            <div class="col-md-6">
+                <form class="form-inline ml-5" #searchForm="ngForm" (ngSubmit)="goSearch()">
+                    <input class="form-control mr-sm-2" type="search" name="search" [(ngModel)]="queryString"
+                        placeholder="Buscar comentario" aria-label="Search" />
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section><br>
+<div class="container">
+    <div *ngIf="comments?.length == 0" class="text-center text-white">
+        No se encontraron comentarios para "{{query}}", intenta con otras palabras...
+    </div>
+
+    <div class="row">
+        <article [routerLink]="['/foro/comentario/', comment._id]" class="col-md-12 text-white mt-3 mb-2"
+            *ngFor="let comment of comments">
+            <img *ngIf="comment.image" src="{{url + 'get-image/' + comment.image}}" alt="{{comment.title}}"
+                class="img-responsive float-left pointer mr-2" height="150px" width="200px">
+            <img *ngIf="!comment.image" src="../../../assets/img/default.jpg" alt="{{comment.title}}"
+                class="img-responsive float-left pointer mr-2" height="150px" width="200px">
+            <p class="font-weight-bold pointer"> {{comment.title}}</p>
+            <p class="text-muted"> {{comment.date | amLocale: 'es' | amTimeAgo}}</p>
+            <p class="pointer"> {{comment.content}}</p>
+            <a [routerLink]="['/foro/comentario/', comment._id]" class="pointer"> Leer más</a><br>
+        </article><br><br>
+    </div>
+</div>

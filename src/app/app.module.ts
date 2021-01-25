@@ -5,6 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { NgxPaginationModule } from 'ngx-pagination'; // Paginación
+import { MomentModule } from 'angular2-moment'; // Formatear fecha
+import { AngularFileUploaderModule } from 'angular-file-uploader'; // Subir imagenes comentarios
+import { QRCodeModule } from 'angularx-qrcode'; // Generar códigos qr
+// Import pdfmake-wrapper and the fonts to use
+import { PdfMakeWrapper } from 'pdfmake-wrapper';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +26,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { VistaComicComponent } from './components/vista-comic/vista-comic.component';
 import { VistaPersonajeComponent } from './components/vista-personaje/vista-personaje.component';
+import { ForoComponent } from './components/foro/foro.component';
+import { CommentComponent } from './components/comment/comment.component';
+import { SearchCommentComponent } from './components/search-comment/search-comment.component';
+import { CreateCommentComponent } from './components/create-comment/create-comment.component';
+import { CommentEditComponent } from './components/comment-edit/comment-edit.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +47,12 @@ import { VistaPersonajeComponent } from './components/vista-personaje/vista-pers
     FooterComponent,
     HomeComponent,
     VistaComicComponent,
-    VistaPersonajeComponent
+    VistaPersonajeComponent,
+    ForoComponent,
+    CommentComponent,
+    SearchCommentComponent,
+    CreateCommentComponent,
+    CommentEditComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +60,10 @@ import { VistaPersonajeComponent } from './components/vista-personaje/vista-pers
     AppRoutingModule,
     RouterModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MomentModule,
+    AngularFileUploaderModule,
+    QRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

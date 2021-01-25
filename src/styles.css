@@ -9,6 +9,10 @@ body {
     /*background: linear-gradient(to right, #1565C0, #b92b27);*/ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+.height220 {
+    height: 250px!important;
+}
+
 a.navbar-brand:hover {
     color: #ec1d24!important;
     font-weight: 700;
