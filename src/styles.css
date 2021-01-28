@@ -22,6 +22,11 @@ body {
     margin: 0;
 }
 
+.all{
+    width: 100%;
+    height: 100%;
+}
+
 .container{
     margin: 0 auto
 }
@@ -88,6 +93,7 @@ a.nav-link:hover {
 }
 .banner-md2 {
     background-image: url("https://free4kwallpapers.com/uploads/originals/2019/10/16/illustration-of-avengers-ironman-wallpaper.jpg");
+    background-color: #000742; 
     background-position: center center;
     background-blend-mode: screen;
     background-size:cover;
@@ -217,8 +223,44 @@ footer i:hover{
     width: 40px;
     margin-top: 7px;
 }
-/*============*/
+/*====Busqueda========*/
+.comic-busqueda{
+    display:flex;
+    flex-direction: column;
+    margin: 0 20px;
+    align-items: center;
+}
+.col1{
+    width: 80%;
+    
+}
+.col1 img{
+    box-shadow: 0px 15px 25px rgba(0,0,0,0.50);
+    object-fit: cover;
+}
 
+.col2 {
+    align-items: center;
+    text-align: center;
+    width: 90%;
+}
+.col2 h4{
+    padding-top: 10px;
+    background: black;
+    color:white;
+    font-size: 40px;
+    margin: 10px 0;
+    border-radius: 6px;
+}
+.col2 p{
+    display:block;
+    text-align: center;
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+}
+/*====*/
 img.tama-redes:hover {
     background-color: #7b1210;
 }

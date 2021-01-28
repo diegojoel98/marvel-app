@@ -7,7 +7,7 @@
             </div>
             <div class="offset-md-5">
                 <div class="input-group-prepend">
-                    <button class="btn btn-outline-secondary dropdown-toggle text-white" type="button"
+                    <button class="btn btn-danger dropdown-toggle text-white" type="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ordenar personajes</button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item btn" (click)="nombre()">Por nombre</a>
@@ -24,9 +24,9 @@
     </div>
 </section><br>
 <div *ngIf="!resultado">
-    <p class="text-center h5 ml-4">Cargando ...</p>
+    <p class="text-center h5 ml-4 text-white">Cargando ...</p>
     <div class="d-flex justify-content-center">
-        <div class="spinner-border text-danger" role="status">
+        <div class="spinner-border text-danger " role="status">
             <span class="sr-only">Loading...</span>
         </div>
     </div>
@@ -34,7 +34,7 @@
 <section>
     <div class="container-fluid">
         <div class="row">
-            <article class="col-md-3 col-6 mb-3 "
+            <article class="col-md-3 col-6 mb-3 all"
                 *ngFor="let elem of resultado?.data.results | paginate: {itemsPerPage: 12, currentPage: p}">
                 <div [routerLink]="['/personaje/', elem.id]" class="margin article-comic blur shadow-lg pointer ">
                     <figure>
@@ -50,7 +50,7 @@
                 </figure>
                 </div>
             </article>
-            <a href="/personajes#page" class="offset-md-4 mt-3">
+            <a href="/personajes#page" class="offset-md-4 mt-3 text-center">
                 <pagination-controls (pageChange)="p = $event" class="offset-md-4 mt-3" previousLabel="Anterior"
                     nextLabel="Siguiente" screenReaderPaginationLabel="Pagination">
                 </pagination-controls>
