@@ -10,6 +10,12 @@ import { AngularFileUploaderModule } from 'angular-file-uploader'; // Subir imag
 import { QRCodeModule } from 'angularx-qrcode'; // Generar códigos qr
 // Import pdfmake-wrapper and the fonts to use
 import { PdfMakeWrapper } from 'pdfmake-wrapper';
+import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider
+} from 'angularx-social-login';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -67,9 +73,29 @@ import { RegisterComponent } from './components/register/register.component';
     NgxPaginationModule,
     MomentModule,
     AngularFileUploaderModule,
-    QRCodeModule
+    QRCodeModule,
+    SocialLoginModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '294429074009-maei0h2t7u8qt2taij5e6fon3gatoib5.apps.googleusercontent.com'
+            )
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('164676051844009')
+          }
+        ]
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

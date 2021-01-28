@@ -39,10 +39,18 @@
                         routerLink="/contacto" routerLinkActive="activeLink">Contacto</a>
                 </li>
             </ul>
-            <div *ngIf="userName == null" class="form-inline my-2 my-lg-0">
+            <div *ngIf="userName == null && !user" class="form-inline my-2 my-lg-0">
                 <button routerLink="/iniciar-sesion" data-toggle="collapse" data-target=".navbar-collapse.show"
                     class="btn btn-success my-2 my-sm-0" type="submit">Iniciar
                     sesión</button>
+            </div>
+            <div *ngIf="user" class="input-group-prepend">
+                <img src="{{ user.photoUrl }}" alt={{user.name}} style="width: 50px;">
+                <button class="btn btn-secondary dropdown-toggle text-white" type="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">{{user.name}}</button>
+                <div class="dropdown-menu left">
+                    <a class="dropdown-item btn my-2 my-sm-0" (click)="signOut()">Cerrar sesión</a>
+                </div>
             </div>
             <div *ngIf="userName != null" class="input-group-prepend">
                 <button class="btn btn-success dropdown-toggle text-white" type="button" data-toggle="dropdown"

@@ -7,13 +7,13 @@
                     <label for="email" class="text-white mt-2">Correo electrónico: </label>
                     <input type="text" id="email" name="email" class="form-control border"
                         [ngClass]="{'border-success': email.valid, 'border-danger': !email.valid && email.touched}"
-                        required title="Escribe tu correo" #email="ngModel" [(ngModel)]="user.email">
+                        required title="Escribe tu correo" #email="ngModel" [(ngModel)]="myuser.email">
                     <p class="text-warning" *ngIf="!email.valid && email.touched">El email no es válido</p><br>
 
                     <label for="password" class="text-white">Contraseña: </label>
                     <input type="password" id="lastName" name="password" class="form-control border"
                         [ngClass]="{'border-success': password.valid, 'border-danger': !password.valid && password.touched}"
-                        required title="Escribe tu contraseña" #password="ngModel" [(ngModel)]="user.password">
+                        required title="Escribe tu contraseña" #password="ngModel" [(ngModel)]="myuser.password">
                     <p class="text-warning" *ngIf="!password.valid && password.touched">La contraseña
                         no es válida</p>
                     <br>
@@ -23,8 +23,28 @@
                     <input type="submit" class="btn btn-success mr-3" value="Iniciar sesión" name="submit"
                         [disabled]="loginForm.invalid" [ngClass]="{'cursor-no-drop': loginForm.invalid}">
 
+                    <a (click)="signInWithGoogle()" class="btn btn-danger font-weight-bold mr-2 mt-1 mb-1"><i
+                            class="fab fa-google"></i> Iniciar sesión con
+                        Google</a>
+
+                    <a (click)="signInWithFB()" class="btn btn-primary font-weight-bold mr-2 mt-1 mb-1"><i
+                            class="fab fa-facebook-f"></i> Iniciar sesión con
+                        Facebook</a>
+
+                    <a (click)="signOut()" *ngIf="user"
+                        class="btn btn-black text-white font-weight-bold mr-2 mt-1 mb-1"><i
+                            class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+
                     <a routerLink="/registrarse" class="btn font-weight-bold border blur">¿No tienes cuenta?,
                         Regístrate</a>
+
+                    <div *ngIf="user" class="col-md-6 offset-md-4 mt-4">
+                        <img src="{{ user.photoUrl }}">
+                        <div>
+                            <h4>{{ user.name }}</h4>
+                            <p>{{ user.email }}</p>
+                        </div>
+                    </div>
 
                     <br />
                     <br />

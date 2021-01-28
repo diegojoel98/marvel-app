@@ -1,6 +1,8 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { ForoService } from 'src/app/services/foro-service.service';
 import { Router } from '@angular/router';
+import { SocialAuthService } from "angularx-social-login";
+import { SocialUser } from "angularx-social-login";
 
 @Component({
   selector: 'app-navbar',
@@ -12,14 +14,23 @@ export class NavbarComponent implements OnInit {
 
   public token: string
   public userName: string
+  user: SocialUser;
+  loggedIn: boolean;
 
   constructor(
     private _foroService: ForoService,
-    private _router: Router
+    private _router: Router,
+    private authService: SocialAuthService
   ) { this.userName = null; }
 
 
   ngOnInit(): void {
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      this.loggedIn = (user != null);
+    });
+
+
     this.token = this._foroService.getToken();
 
     if (this.token != null && this.token != undefined) {
@@ -39,6 +50,10 @@ export class NavbarComponent implements OnInit {
     this._foroService.logout();
     this._router.navigate(['/home']);
     this.userName = null;
+  }
+
+  signOut(): void {
+    this.authService.signOut();
   }
 
 }

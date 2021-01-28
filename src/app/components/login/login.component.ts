@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ForoService } from '../../services/foro-service.service';
 import { Router } from '@angular/router';
 
+import { SocialAuthService } from "angularx-social-login";
+import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
+import { SocialUser } from "angularx-social-login";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,15 +14,19 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  public user: any;
+  public myuser: any;
   public token: string;
-  public error: string
+  public error: string;
+
+  user: SocialUser;
+  loggedIn: boolean;
 
   constructor(
     private _foroService: ForoService,
-    private _router: Router
+    private _router: Router,
+    private authService: SocialAuthService
   ) {
-    this.user = {
+    this.myuser = {
       email: '',
       password: ''
     };
@@ -26,10 +34,14 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      this.loggedIn = (user != null);
+    });
   }
 
   login() {
-    return this._foroService.login(this.user).subscribe(
+    return this._foroService.login(this.myuser).subscribe(
       res => {
         console.log(res);
         if (res.token) {
@@ -52,6 +64,18 @@ export class LoginComponent implements OnInit {
         console.log(this.error);
       }
     )
+  }
+
+  signInWithGoogle(): void {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  }
+
+  signInWithFB(): void {
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
+
+  signOut(): void {
+    this.authService.signOut();
   }
 
 }
