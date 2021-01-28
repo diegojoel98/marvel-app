@@ -2,25 +2,29 @@
     <div class="row">
         <div class="col-md-12">
             <h2 class="text-white mt-3 mb-3">Iniciar sesión</h2>
-            <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+            <form (ngSubmit)="login()" #loginForm="ngForm">
                 <div class="form-group container">
                     <label for="email" class="text-white mt-2">Correo electrónico: </label>
                     <input type="text" id="email" name="email" class="form-control border"
                         [ngClass]="{'border-success': email.valid, 'border-danger': !email.valid && email.touched}"
                         required title="Escribe tu correo" #email="ngModel" [(ngModel)]="user.email">
-                    <p class="text-danger" *ngIf="!email.valid && email.touched">El email no es válido</p><br>
+                    <p class="text-warning" *ngIf="!email.valid && email.touched">El email no es válido</p><br>
+
                     <label for="password" class="text-white">Contraseña: </label>
-                    <input type="text" id="lastName" name="password" class="form-control border"
-                        [ngClass]="{'border-success': password.invalid, 'border-danger': !password.valid && password.touched}"
+                    <input type="password" id="lastName" name="password" class="form-control border"
+                        [ngClass]="{'border-success': password.valid, 'border-danger': !password.valid && password.touched}"
                         required title="Escribe tu contraseña" #password="ngModel" [(ngModel)]="user.password">
-                    <p class="text-danger" *ngIf="!password.valid && password.touched">La contraseña no es válida</p>
+                    <p class="text-warning" *ngIf="!password.valid && password.touched">La contraseña
+                        no es válida</p>
                     <br>
+
+                    <p class="text-warning font-weight-bolder" *ngIf="error != null">{{error}}</p><br>
 
                     <input type="submit" class="btn btn-success mr-3" value="Iniciar sesión" name="submit"
                         [disabled]="loginForm.invalid" [ngClass]="{'cursor-no-drop': loginForm.invalid}">
 
                     <a routerLink="/registrarse" class="btn font-weight-bold border blur">¿No tienes cuenta?,
-                        Registrate</a>
+                        Regístrate</a>
 
                     <br />
                     <br />

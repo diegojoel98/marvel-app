@@ -4,6 +4,7 @@ import { ForoService } from '../../services/foro-service.service';
 import { ForoModel } from '../../models/foro';
 import { Global } from '../../services/global';
 import * as XLSX from 'xlsx';
+import { UserModel } from 'src/app/models/user';
 
 @Component({
   selector: 'app-foro',
@@ -14,9 +15,11 @@ import * as XLSX from 'xlsx';
 export class ForoComponent implements OnInit {
 
   public comments: ForoModel[];
+  public userName: string;
   public url: string;
   public queryString: string;
   public qrdata: boolean;
+  public token: string
 
   fileName = 'ComentariosForo.xlsx';
 
@@ -30,6 +33,19 @@ export class ForoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.token = this._foroService.getToken();
+    if (this.token != null && this.token != undefined) {
+      this._foroService.getUserLogged(this.token).subscribe(
+        res => {
+          this.userName = res.usuarioDB.nombre;
+          console.log('userName: ' + this.userName);
+        },
+        err => {
+          console.log(err);
+        }
+      )
+    }
+
     this._foroService.getComments().subscribe(
       res => {
         if (res.comments) {

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ForoModel } from '../models/foro';
+import { UserModel } from '../models/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Global } from '../services/global';
@@ -46,6 +47,34 @@ export class ForoService {
   delete(id): Observable<any> {
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this._http.delete(this.url + 'comment/' + id, { headers: headers });
+  }
+
+
+  // User
+  login(user: any): Observable<any> {
+    return this._http.post(this.url + 'login', user);
+  }
+
+  logout() {
+    localStorage.removeItem('auth_token');
+    localStorage.removeItem('_id');
+  }
+
+  register(user: any): Observable<any> {
+    return this._http.post(this.url + 'register', user);
+  }
+
+  setToken(token, id) {
+    localStorage.setItem('auth_token', token);
+    localStorage.setItem('_id', id);
+  }
+
+  getToken() {
+    return localStorage.getItem('_id');
+  }
+
+  getUserLogged(token): Observable<any> {
+    return this._http.get(this.url + 'token/' + token);
   }
 
 

@@ -13,6 +13,16 @@ body {
     height: 250px!important;
 }
 
+.left {
+    left: 84%;
+}
+
+@media screen and (max-width: 991px) {
+    .left {
+        left: 0;
+    }
+}
+
 a.navbar-brand:hover {
     color: #ec1d24!important;
     font-weight: 700;

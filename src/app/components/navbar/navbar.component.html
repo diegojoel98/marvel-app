@@ -39,9 +39,17 @@
                         routerLink="/contacto" routerLinkActive="activeLink">Contacto</a>
                 </li>
             </ul>
-            <div class="form-inline my-2 my-lg-0">
-                <button routerLink="/iniciar-sesion" class="btn btn-success my-2 my-sm-0" type="submit">Iniciar
+            <div *ngIf="userName == null" class="form-inline my-2 my-lg-0">
+                <button routerLink="/iniciar-sesion" data-toggle="collapse" data-target=".navbar-collapse.show"
+                    class="btn btn-success my-2 my-sm-0" type="submit">Iniciar
                     sesión</button>
+            </div>
+            <div *ngIf="userName != null" class="input-group-prepend">
+                <button class="btn btn-success dropdown-toggle text-white" type="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">{{userName}}</button>
+                <div class="dropdown-menu left">
+                    <a class="dropdown-item btn my-2 my-sm-0" (click)="logout()">Cerrar sesión</a>
+                </div>
             </div>
         </div>
     </nav>
