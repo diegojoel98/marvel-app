@@ -1,0 +1,279 @@
+/* Home Page */
+body {
+    background: #ef3b36; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #B1D0E3, #EEC0BF); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #B1D0E3, #EEC0BF);
+    
+    /*background: #b92b27;*/  /* fallback for old browsers */
+    /*background: -webkit-linear-gradient(to right, #1565C0, #b92b27);*/  /* Chrome 10-25, Safari 5.1-6 */
+    /*background: linear-gradient(to right, #1565C0, #b92b27);*/ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+a.navbar-brand:hover {
+    color: #ec1d24!important;
+    font-weight: 700;
+    transition: all 0.1s linear;
+}
+
+a.navbar-brand > img:hover {
+    transform: scale(1.07);
+    transition: all 0.5s ease-out;
+}
+
+.nav-link {
+    font-size: 16.5px;
+}
+
+a.nav-link:hover, .activeLink {
+    color: #ff0000!important;
+}
+
+a.nav-link:hover {
+    text-shadow: 1px 1px rgb(76, 79, 235);
+}
+
+.title-section {
+    font-family: 'Permanent Marker', cursive!important;
+}
+
+.text-description {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.title-home {
+    font-size: 1.15em;
+}
+
+.banner, .banner-md {
+    width: auto;
+    background: #ED213A;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #93291E, #ec1d24);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #93291E, #ec1d24); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.banner {
+    height: 250px;
+}
+
+.banner-md {
+    height: 200px;
+}
+
+.space {
+    height: 68px;
+}
+
+.title-banner, .title-banner-md {
+    font-family: Roboto, "Trebuchet MS", Helvetica, Arial, sans-serif;
+}
+
+.title-banner {
+    margin-top: 100px;
+}
+
+.title-banner-md {
+    margin-top: 75px;
+}
+
+.article-comic, .article-comic-vista {
+    background-color: #548bca;    
+    border: 6px solid #ff0000;
+    width: 100%;
+    position: relative;
+    overflow-y: hidden;
+}
+
+.article-comic:hover {
+    transform: scale(1.02);
+    transition: all 0.3s ease-in;
+    border: 6px solid #ffffff;
+}
+
+
+.article-comic img{
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.article-comic p{
+    position:absolute;
+    top: 40%;
+    left: 0;
+    padding: 15px 10px;
+    margin: 0;
+    background-color: rgb(0, 0, 0, 0.75);
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+}
+.title-comic{   
+    font-size: 1.2em;
+}
+
+.title-comic:hover {
+    text-shadow: 1px 1px #ccc;
+}
+
+.bg-footer {
+    background-color:  #8a1212;
+}
+
+.text-footer {
+    margin-top: 13px;
+}
+
+.tama-redes {
+    height: 40px;
+    width: 40px;
+    margin-top: 7px;
+}
+
+img.tama-redes:hover {
+    
+    background-color: #7b1210;
+
+}
+
+@media screen and (max-width: 768px) {
+    img.tama-redes {
+        display: block;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .text-footer {
+        margin: 0px;
+    }
+
+    .text-med {
+        margin: auto;
+        display: block;
+        float: none!important;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+    .img-md, .text-md{
+        margin: auto;
+        display: block;
+        float: none!important;
+    }
+}
+
+/* Comic Page */
+
+
+/* Personajes Page */
+.blur:hover {
+    background: rgba(183, 207, 238, 0.5);
+    transition: all 0.8s ease-out;
+}
+
+.blur:hover > a>img{
+    filter: blur(5px);
+}
+
+/*.blur > a.title-comic {
+    visibility: hidden;
+}*/
+
+.blur:hover > a.title-comic {
+    transform: translateX(0px) translateY(-50px);
+    color: #000!important;
+    font-weight: 800;
+    font-size: 1.5em;
+    text-shadow: 4px 4px 5px #ffff;
+    visibility: visible;
+}
+
+.white-space {
+    white-space: pre-wrap;
+}
+
+@media (max-width: 768px) { 
+    .blur > a.title-comic {
+        visibility: visible;
+        color: #000!important;
+    }
+
+    .blur:hover {
+        background: #5187c4;;
+        transition: none;
+    }
+    
+    .blur:hover > a>img{
+        filter: blur(0px);
+    }
+    
+    .blur:hover > a.title-comic {
+        transform: none;
+        color: currentColor;
+        font-weight: 800;
+        font-size: 1.5em;
+        text-shadow: 4px 4px 5px #ffff;
+        visibility: visible;
+    }
+}
+
+/* Busqueda Page */
+.img-query:hover {
+    transform: scale(1.3);
+    transition: all 0.5s ease-in;
+}
+
+@media (max-width: 768px) {
+
+    .form-inline1, .form-control1 {
+        display: inline-block!important;
+        width: 100%!important;
+        vertical-align: middle!important;
+    }
+
+    .img-query:hover {
+        transform: none;
+        transition: none;
+    }
+
+}
+
+/* Contacto Page */
+textarea#comment.form-control, textarea#content.form-control{
+    min-height: 50px;
+}
+
+.cursor-no-drop {
+    cursor: no-drop;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+/* Vista-Comic/Personaje page */
+.title-vista {
+    font-size: 2.5em;
+    margin: auto;
+    width: 100%;
+}
+
+.img-comic-vista {
+    height: 350px;
+    width: 280px;
+}
+
+/* Page not found */
+.img-not-found {
+    height: 550px;
+}
+
+body{
+    background: #b92b27;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.container{
+    margin: 0 auto
+}

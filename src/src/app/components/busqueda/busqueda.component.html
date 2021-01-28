@@ -1,0 +1,73 @@
+<section>
+    <div class="container-fluid">
+        <div class="row banner-md">
+            <div class="col-12">
+                <h1 class="text-white text-center title-banner-md title-section animate__animated animate__pulse">
+                    Búsqueda <i class="fas fa-search"></i>
+                </h1>
+            </div>
+        </div>
+    </div>
+</section><br>
+<section class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <form #searchComic="ngForm" class="form-inline form-inline1 my-2 my-lg-0 mx-auto">
+                <input class="form-control form-control1  mr-sm-2" type="search" name="queryComics"
+                    placeholder="Buscar cómic" required [(ngModel)]="queryComics" autofocus>
+                <button (click)="busquedaComic()" class="btn btn-outline-success my-2 my-sm-0">Buscar</button>
+            </form>
+            <form #searchPersonaje="ngForm" class="form-inline form-inline1 my-2 my-lg-0 mx-auto">
+                <input class="form-control form-control1 mr-sm-2" type="search" name="queryPersonajes"
+                    placeholder="Buscar personaje" required [(ngModel)]="queryPersonajes" autofocus>
+                <button (click)="busquedaPersonaje()" class="btn btn-outline-success my-2 my-sm-0">Buscar</button>
+            </form>
+        </div>
+    </div>
+</section><br>
+<div *ngIf="!resultado && !resultadoPers" class="img-comic-vista"></div>
+
+<h4 *ngIf="resultado || resultadoPers" class="text-center mt-3 mb-3 text-muted">Resultados: </h4>
+
+<div *ngIf="resultado?.data.results.length == 0;">
+    <p class="text-center title-comic" style="height: 100px;">Lo sentimos, no hay resultados
+        para el cómic, intenta buscar de nuevo
+    </p>
+</div>
+<div *ngIf="resultadoPers?.data.results.length == 0;">
+    <p class="text-center title-comic" style="height: 150px;">Lo sentimos, no hay
+        resultados para el personaje, intenta buscar de nuevo
+    </p>
+</div>
+
+<section class="container-fluid">
+    <div class="row">
+        <div class="col-md-8" *ngIf="resultado">
+            <ul class="list-group">
+                <li *ngFor="let elem of resultado.data.results; index as i;" class="list-group-item"
+                    [style.background-color]="(i % 2 === 0) ? '#B1D0E3': '#EEC0BF'">
+                    <a [routerLink]="['/comic/', elem.id]">
+                        <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}"
+                            class="img-fluid col-md-2 img-query" />
+                        <h4 class="ml-5 float-left col-md-7">{{elem.title}}</h4>
+                        <p class="font-large">{{elem.variantDescription}}</p>
+                    </a>
+                    <p class="ml-4 col-md-7 text-dark font-large">{{elem.description}}</p>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4" *ngIf="resultadoPers">
+            <article [routerLink]="['/personaje/', elem.id]" class="pointer"
+                *ngFor="let elem of resultadoPers.data.results; index as i;">
+                <div class="margin article-comic">
+                    <a [routerLink]="['/personaje/', elem.id]">
+                        <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.name}}"
+                            class="img-fluid rounded mt-2 mx-auto d-block">
+                    </a>
+                    <a [routerLink]="['/personaje/', elem.id]"
+                        class="title-comic text-center btn text-white">{{elem.name}}</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>

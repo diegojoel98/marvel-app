@@ -1,0 +1,62 @@
+<section>
+    <div class="container-fluid">
+        <div class="row banner-md" id="page">
+            <div class="col-12">
+                <h1 class="text-white text-center title-banner-md title-section animate__animated animate__pulse">Cómics
+                    <i class="fas fa-book-open"></i>
+                </h1>
+            </div>
+
+            <div class="offset-md-5">
+                <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary dropdown-toggle text-white" type="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ordenar cómics</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item btn" (click)="titulo()">Por título</a>
+                        <a class="dropdown-item btn" (click)="tituloDes()">Por título (descendente)</a>
+                        <a class="dropdown-item btn" (click)="modificacion()">Por fecha de modificación (más
+                            reciente)</a>
+                        <a class="dropdown-item btn" (click)="modificacionDes()">Por fecha de modificación
+                            (menos reciente)</a>
+                        <a class="dropdown-item btn" (click)="venta()">Por fecha de venta (antiguos)</a>
+                        <a class="dropdown-item btn" (click)="ventaDes()">Por fecha de venta (recientes)</a>
+                        <!--<div role="separator" class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Separated link</a>-->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section><br>
+<section class="container">
+    <div class="container-fluid">
+        <div *ngIf="!resultado">
+            <p class="text-center h3 ml-4">Cargando ...</p>
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border text-danger" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <article class="col-md-4 col-sm-6 mb-3"
+                *ngFor="let elem of resultado?.data.results | paginate: {itemsPerPage: 12, currentPage: p}">
+                <div class="article-comic">
+                    <a [routerLink]="['/comic/', elem.id]">
+                        <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.title}}"
+                            class="img-fluid mx-auto d-block">
+                    </a>
+
+                    <p [routerLink]="['/comic/', elem.id]" class="text-center btn text-white">{{elem.title}}</p>
+
+                </div>
+            </article>
+            <a href="/comics#page" class="offset-md-4 mt-3">
+                <pagination-controls (pageChange)="p = $event" class="offset-md-4 mt-3" previousLabel="Anterior"
+                    nextLabel="Siguiente" screenReaderPaginationLabel="Pagination">
+                </pagination-controls>
+            </a>
+        </div>
+    </div><br>
+</section>

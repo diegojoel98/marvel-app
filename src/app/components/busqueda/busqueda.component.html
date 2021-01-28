@@ -1,8 +1,8 @@
 <section>
     <div class="container-fluid">
-        <div class="row banner-md">
+        <div class="row banner-md2">
             <div class="col-12">
-                <h1 class="text-white text-center title-banner-md title-section animate__animated animate__pulse">
+                <h1 class="text-white text-center title-banner title-section animate__animated animate__pulse">
                     Búsqueda <i class="fas fa-search"></i>
                 </h1>
             </div>
@@ -12,14 +12,14 @@
 <section class="container">
     <div class="row">
         <div class="col-md-4 offset-md-4">
-            <form #searchComic="ngForm" class="form-inline my-2 my-lg-0 mx-auto">
-                <input class="form-control mr-sm-2" type="search" name="queryComics" placeholder="Buscar cómic" required
-                    [(ngModel)]="queryComics" autofocus>
+            <form #searchComic="ngForm" class="form-inline form-inline1 my-2 my-lg-0 mx-auto">
+                <input class="form-control form-control1  mr-sm-2" type="search" name="queryComics"
+                    placeholder="Buscar cómic" required [(ngModel)]="queryComics" autofocus>
                 <button (click)="busquedaComic()" class="btn btn-outline-success my-2 my-sm-0">Buscar</button>
             </form>
-            <form #searchPersonaje="ngForm" class="form-inline my-2 my-lg-0 mx-auto">
-                <input class="form-control mr-sm-2" type="search" name="queryPersonajes" placeholder="Buscar personaje"
-                    required [(ngModel)]="queryPersonajes" autofocus>
+            <form #searchPersonaje="ngForm" class="form-inline form-inline1 my-2 my-lg-0 mx-auto">
+                <input class="form-control form-control1 mr-sm-2" type="search" name="queryPersonajes"
+                    placeholder="Buscar personaje" required [(ngModel)]="queryPersonajes" autofocus>
                 <button (click)="busquedaPersonaje()" class="btn btn-outline-success my-2 my-sm-0">Buscar</button>
             </form>
         </div>
@@ -62,7 +62,7 @@
                 <div class="margin article-comic">
                     <a [routerLink]="['/personaje/', elem.id]">
                         <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.name}}"
-                            class="img-fluid rounded mt-2 mx-auto d-block img-comic">
+                            class="img-fluid rounded mt-2 mx-auto d-block">
                     </a>
                     <a [routerLink]="['/personaje/', elem.id]"
                         class="title-comic text-center btn text-white">{{elem.name}}</a>
