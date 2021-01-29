@@ -1,16 +1,22 @@
-<div *ngFor="let elem of resultado?.data.results; index as i;" class="mt-2">
+<div *ngFor="let elem of resultado?.data.results; index as i;" class="mt-2 container">
     <article class="article-comic-vista">
-        <a>
-            <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.title}}"
-                class="img-fluid img-comic-vista mx-auto d-block mt-2">
-        </a>
-        <a class="title-comic title-section title-vista text-center btn text-white">{{elem.title | uppercase}}</a>
-        <p class="title-comic font-weight-bold text-center text-description">{{elem.description}}</p>
-        <p class="title-comic font-weight-bold text-center text-description">{{elem.variantDescription}}</p>
-        <p class="title-comic font-weight-bold text-white ml-3">Creadores: {{elem.creators.available}}</p>
-        <p class="title-comic font-weight-bold text-white ml-3">Personajes: {{elem.characters.available}}</p>
-        <p class="title-comic font-weight-bold text-white ml-3">Historias: {{elem.stories.available}}</p>
-        <p class="title-comic font-weight-bold text-white ml-3">Eventos: {{elem.events.available}}</p>
+        <div class="fila0">
+            <a>
+                <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.title}}"
+                    class="img-fluid img-comic-vista">
+            </a>
+        </div>
+        <div class="fila1">
+            <a class=" title-section title-vista text-center btn text-white">{{elem.title | uppercase}}</a>
+            <p class=" font-weight-bold text-center text-white text-description">{{elem.description}}</p>
+            <p class=" font-weight-bold text-center  text-white text-description">{{elem.variantDescription}}</p>
+            <div class="fila2">
+                <p class=" font-weight-bold text-white ml-3">Creadores: {{elem.creators.available}}</p>
+                <p class=" font-weight-bold text-white ml-3">Personajes: {{elem.characters.available}}</p>
+                <p class=" font-weight-bold text-white ml-3">Historias: {{elem.stories.available}}</p>
+                <p class=" font-weight-bold text-white ml-3">Eventos: {{elem.events.available}}</p>
+            </div>
+        </div>
     </article><br />
 
     <div class="container-fluid">
@@ -23,15 +29,18 @@
             </div>
         </div>
         <div class="row" *ngIf="!resultadoPersonajes?.data.results.length == 0;"><br>
-            <p class="title-comic title-section title-vista text-center">Personajes en el cómic</p>
+            <p class=" title-section title-vista text-center text-white">Personajes en el cómic</p>
             <article class="col-md-3 col-6 mb-3" *ngFor="let elem of resultadoPersonajes.data.results; index as i;">
-                <div [routerLink]="['/personaje/', elem.id]" class="margin article-comic blur pointer">
-                    <a [routerLink]="['/personaje/', elem.id]">
-                        <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.name}}"
-                            class="img-fluid">
-                    </a>
-                    <a [routerLink]="['/personaje/', elem.id]"
-                        class="title-comic text-center mx-auto d-block white-space btn text-white">{{elem.name}} </a>
+                <div [routerLink]="['/personaje/', elem.id]" class="margin  blur pointer article-comic">
+                    <figure>
+                        <a [routerLink]="['/personaje/', elem.id]">
+                            <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.name}}"
+                                class="img-fluid">
+                        </a>
+                        <a [routerLink]="['/personaje/', elem.id]" class=" title-comic white-space btn text-white">
+                            <p>{{elem.name}} </p>
+                        </a>
+                    </figure>
                 </div>
             </article>
         </div>

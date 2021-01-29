@@ -1,8 +1,8 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-8 offset-md-2 mb-3 mt-4" id="row">
-                <h1 class="text-center">Contacto</h1>
+            <div class="col-12 col-md-8 offset-md-2 mb-5 mt-4" id="row">
+                <h1 class="text-center text-white">Contacto</h1>
 
                 <form (ngSubmit)="onSubmit()" #userForm="ngForm">
                     <div class="form-group container">
@@ -11,13 +11,16 @@
                             [ngClass]="{'border-success': name.valid, 'border-danger': !name.valid && name.touched}"
                             required title="Type your name" #name="ngModel" [(ngModel)]="user.name"
                             pattern="^([a-zA-Z]+[,.]?[ ]?|[a-zA-Z]+['-]?)+$">
-                        <p class="text-danger" *ngIf="!name.valid && name.touched">El nombre no es válido</p>
+                        <p class="text-danger" *ngIf="!name.valid && name.touched">El nombre no es válido</p><br>
+
                         <label for="lastName" class="text-white">Apellido:</label>
                         <input type="text" id="lastName" name="lastName" class="form-control border"
                             [ngClass]="{'border-success': lastname.valid, 'border-danger': !lastname.valid && lastname.touched}"
                             required title="Type your lastname" #lastname="ngModel" [(ngModel)]="user.lastname"
                             pattern="^([a-zA-Z]+[,.]?[ ]?|[a-zA-Z]+['-]?)+$">
                         <p class="text-danger" *ngIf="!lastname.valid && lastname.touched">El apellido no es válido</p>
+                        <br>
+
                         <label for="comment" class="text-white">Comentario:</label>
                         <textarea name="comment" id="comment" cols="30" rows="3" class="form-control border"
                             [ngClass]="{'border-success': comment.valid, 'border-danger': !comment.valid && comment.touched}"
@@ -46,9 +49,9 @@
                                 Otro
                             </label>
                         </div><br>
-                        <input type="submit" class="btn btn-success mr-3" value="Submit" name="submit"
+                        <input type="submit" class="btn btn-primary mr-3" value="Enviar" name="submit"
                             [disabled]="userForm.invalid" [ngClass]="{'cursor-no-drop': userForm.invalid}">
-                        <input type="reset" class="btn btn-warning text-white mr-3" value="Reset" name="reset"
+                        <input type="reset" class="btn btn-secondary text-white mr-3" value="Reiniciar" name="reset"
                             [disabled]="!name.touched && !lastname.touched && !comment.touched"
                             [ngClass]="{'cursor-no-drop': !name.touched && !lastname.touched && !comment.touched}">
                         <br />

@@ -4,7 +4,7 @@
         <a class="navbar-brand text-white" routerLink="/home">
 
             <img src="https://cdn6.aptoide.com/imgs/0/1/5/015c85387bf3f8789c5c15f5a2dc3b1b_icon.png" alt=""
-                class="tama-redes mt-0 d-inline"> Marvel
+                class="tama-redes mt-0 d-inline "> Marvel
             App</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,8 +41,8 @@
             </ul>
             <div *ngIf="userName == null && !user" class="form-inline my-2 my-lg-0">
                 <button routerLink="/iniciar-sesion" data-toggle="collapse" data-target=".navbar-collapse.show"
-                    class="btn btn-success my-2 my-sm-0" type="submit">Iniciar
-                    sesión</button>
+                    class="btn btn-danger my-2 my-sm-0" type="submit">Iniciar
+                    sesión <i class="fas fa-user"></i></button>
             </div>
             <div *ngIf="user" class="input-group-prepend">
                 <img src="{{ user.photoUrl }}" alt={{user.name}} style="width: 50px;">

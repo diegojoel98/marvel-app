@@ -20,8 +20,10 @@
 
                     <p class="text-warning font-weight-bolder" *ngIf="error != null">{{error}}</p><br>
 
-                    <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" formControlName="recaptcha">
-                    </ngx-recaptcha2><br>
+                    <div [formGroup]="aFormGroup">
+                        <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" formControlName="recaptcha">
+                        </ngx-recaptcha2>
+                    </div><br>
 
                     <input type="submit" class="btn btn-success mr-3" value="Iniciar sesión" name="submit"
                         [disabled]="loginForm.invalid" [ngClass]="{'cursor-no-drop': loginForm.invalid}">
@@ -38,10 +40,10 @@
                         class="btn btn-black text-white font-weight-bold mr-2 mt-1 mb-1"><i
                             class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
 
-                    <a routerLink="/registrarse" class="btn font-weight-bold border blur">¿No tienes cuenta?,
+                    <a routerLink="/registrarse" class="btn font-weight-bold border blur text-white">¿No tienes cuenta?,
                         Regístrate</a>
 
-                    <div *ngIf="user" class="col-md-6 offset-md-4 mt-4">
+                    <div *ngIf="user" class="col-md-6 offset-md-4 mt-4 text-white">
                         <img src="{{ user.photoUrl }}">
                         <div>
                             <h4>{{ user.name }}</h4>

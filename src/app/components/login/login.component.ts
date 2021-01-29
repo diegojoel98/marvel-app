@@ -6,6 +6,8 @@ import { SocialAuthService } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
 import { SocialUser } from "angularx-social-login";
 
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,6 +15,7 @@ import { SocialUser } from "angularx-social-login";
   providers: [ForoService]
 })
 export class LoginComponent implements OnInit {
+  public aFormGroup: FormGroup;
 
   public myuser: any;
   public token: string;
@@ -27,7 +30,7 @@ export class LoginComponent implements OnInit {
     private _foroService: ForoService,
     private _router: Router,
     private authService: SocialAuthService,
-
+    private formBuilder: FormBuilder
   ) {
     this.myuser = {
       email: '',
@@ -38,6 +41,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.aFormGroup = this.formBuilder.group({
+      recaptcha: ['', Validators.required]
+    });
 
     this.authService.authState.subscribe((user) => {
       this.user = user;

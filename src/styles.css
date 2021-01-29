@@ -1,12 +1,34 @@
 /* Home Page */
-body {
-    background: #ef3b36; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #B1D0E3, #EEC0BF); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #B1D0E3, #EEC0BF);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
     
-    /*background: #b92b27;*/  /* fallback for old browsers */
-    /*background: -webkit-linear-gradient(to right, #1565C0, #b92b27);*/  /* Chrome 10-25, Safari 5.1-6 */
-    /*background: linear-gradient(to right, #1565C0, #b92b27);*/ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+html{
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    background: #b92b27;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #0057bb, #7e0400);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #0057bb, #7e0400); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+    background: rgb(0,0,0);
+    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(126,4,0,1) 50%, rgba(0,49,106,1) 100%);
+    margin: 0;
+}
+
+.all{
+    width: 100%;
+    height: 100%;
+}
+
+.container{
+    margin: 0 auto
 }
 
 .height220 {
@@ -57,83 +79,185 @@ a.nav-link:hover {
 .title-home {
     font-size: 1.15em;
 }
-
-.banner, .banner-md {
+/*===Banner Marvel=======*/
+.banner, .banner-md, .banner-md2 {
     width: auto;
-    background: #ED213A;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #93291E, #ec1d24);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #93291E, #ec1d24); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    display:flex;
+    align-items: center;
+    background-size: 110%;
 }
 
 .banner {
-    height: 250px;
+    background-image: url("https://free4kwallpapers.com/uploads/originals/2020/04/29/marvel-avengers-wallpaper.jpg");
+    background-color: #6e000d;  /* fallback for old browsers */
+    background-position: 90% top;
+    background-blend-mode: screen;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 480px;
+    margin-bottom: 20px;
 }
 
 .banner-md {
-    height: 200px;
+    background-image: url("https://free4kwallpapers.com/uploads/originals/2018/05/03/avengers-infinity-minimal-wallpaper.jpg");
+    background-color: #000d7e;  /* fallback for old browsers */
+    background-blend-mode: screen;
+    background-attachment: fixed;
+    height: 300px;
+}
+
+.banner-md2 {
+    background-image: url("https://free4kwallpapers.com/uploads/originals/2019/10/16/illustration-of-avengers-ironman-wallpaper.jpg");
+    background-color: #000742; 
+    background-position: center center;
+    background-blend-mode: screen;
+    background-size:cover;
+    height: 300px;
+}
+@media screen and (max-width: 480px){
+    .banner{
+        height: 200px;
+        background-position: 60% 5%;
+        background-size: 175%;
+    }
+    .banner-md{
+        height: 200px;
+        background-size:contain;
+        background-position:center 20%;
+        background-size: 150%;
+    }
+    .banner-md2 {
+        height: 250px;
+    }
 }
 
 .space {
     height: 68px;
 }
-
-.title-banner, .title-banner-md {
-    font-family: Roboto, "Trebuchet MS", Helvetica, Arial, sans-serif;
+.title-banner{
+    font-size: 100px;
 }
-
-.title-banner {
-    margin-top: 100px;
-}
-
 .title-banner-md {
-    margin-top: 75px;
+    margin-top: 25px;
 }
 
-.article-comic, .article-comic-vista {
+@media(max-width: 480px){
+    .title-banner{
+        font-size: 40px;
+    }
+    .title-banner-md {
+        margin-top: 25px;
+        font-size: 35px;
+    }
+}
+/*========================================*/
+.article-comic {
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    padding: 0;
     background-color: #548bca;    
-    border: 6px solid #ff0000;
-    width: 100%;
+    border: 6px solid #e23636;
+    border-radius: 6px;
+}
+
+
+.article-comic figure{
     position: relative;
-    overflow-y: hidden;
+    overflow: hidden;
+    box-shadow: 0px 15px 25px rgba(0,0,0,0.50);
+    cursor: pointer;
+    margin-bottom: 0;
 }
 
-.article-comic:hover {
-    transform: scale(1.02);
-    transition: all 0.3s ease-in;
-    border: 6px solid #ffffff;
-}
-
-
-.article-comic img{
-    max-width: 100%;
-    object-fit: contain;
-}
-
-.article-comic p{
-    position:absolute;
-    top: 40%;
-    left: 0;
-    padding: 15px 10px;
-    margin: 0;
-    background-color: rgb(0, 0, 0, 0.75);
+.article-comic figure img{
     width: 100%;
+    height: 100%;
+    transition: all 0.5s ease-out;
+}
+
+.article-comic figure:hover a > img{
+    transform: scale(1.3);
+}
+
+/*Comic*/
+.title-comic{ 
+    position: absolute;
+    top: 0;
+    color: white;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.452);
+    transition: all 500ms ease-out;
+    opacity: 0;
+    visibility:hidden;
     text-align: center;
-    text-transform: uppercase;
-}
-.title-comic{   
-    font-size: 1.2em;
-}
-
-.title-comic:hover {
-    text-shadow: 1px 1px #ccc;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.bg-footer {
-    background-color: #8a1212;
+.article-comic figure:hover > .title-comic{
+    opacity: 1;
+    visibility: visible;
+   
 }
 
-.text-footer {
-    margin-top: 13px;
+
+.article-comic figure:hover .title-comic p{
+    font-size: 25px;
+    transition: all 500ms ease-out;
+}
+/*========Pagina comic====*/
+.article-comic-vista{
+    margin: 10px 100px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #548bca;    
+    border: 6px solid #e23636;
+    border-radius: 6px;
+    padding: 0 30px;
+}
+
+.article-comic-vista .fila0{
+    text-align: center;
+    padding: 10px 0;
+    border: 6px so
+}
+.article-comic-vista .fila0 img{
+    box-shadow: 0px 15px 25px rgba(0,0,0,0.50);
+    height: 90%;
+    width: 70%;
+    object-fit: cover;
+}
+
+.article-comic-vista .fila2{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+/*===FOOTER CLASS===*/
+footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+}
+footer i{
+    color: white;
+    font-size: 25px;
+    transition: all 100ms ease-out;
+}
+
+footer i:hover{
+    color:rgb(160, 209, 255);
 }
 
 .tama-redes {
@@ -142,6 +266,53 @@ a.nav-link:hover {
     margin-top: 7px;
 }
 
+@media(max-width: 480px){
+    footer{
+        font-size: 14px;
+    }
+    footer i{
+        padding: 15px 0;
+    }
+}
+
+/*====Busqueda========*/
+.comic-busqueda{
+    display:flex;
+    flex-direction: column;
+    margin: 0 20px;
+    align-items: center;
+}
+.col1{
+    width: 80%;
+    
+}
+.col1 img{
+    box-shadow: 0px 15px 25px rgba(0,0,0,0.50);
+    object-fit: cover;
+}
+
+.col2 {
+    align-items: center;
+    text-align: center;
+    width: 90%;
+}
+.col2 h4{
+    padding-top: 10px;
+    background: black;
+    color:white;
+    font-size: 40px;
+    margin: 10px 0;
+    border-radius: 6px;
+}
+.col2 p{
+    display:block;
+    text-align: center;
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+}
+/*====*/
 img.tama-redes:hover {
     background-color: #7b1210;
 }
@@ -173,18 +344,6 @@ img.tama-redes:hover {
     }
 }
 
-/* Comic Page */
-
-
-/* Personajes Page */
-.blur:hover {
-    background: rgba(183, 207, 238, 0.5);
-    transition: all 0.8s ease-out;
-}
-
-.blur:hover > a>img{
-    filter: blur(5px);
-}
 
 /*.blur > a.title-comic {
     visibility: hidden;
@@ -258,15 +417,12 @@ textarea#comment.form-control, textarea#content.form-control{
     cursor: no-drop;
 }
 
-.pointer {
-    cursor: pointer;
-}
-
 /* Vista-Comic/Personaje page */
 .title-vista {
     font-size: 2.5em;
     margin: auto;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .img-comic-vista {
@@ -277,15 +433,4 @@ textarea#comment.form-control, textarea#content.form-control{
 /* Page not found */
 .img-not-found {
     height: 550px;
-}
-
-body{
-    background: #b92b27;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-}
-
-.container{
-    margin: 0 auto
 }
