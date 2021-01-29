@@ -1,15 +1,15 @@
 <section>
-    <div class="container-fluid">
-        <div class="row banner-md2" id="page">
+    <div class="container-fluid ">
+        <div class="row banner-md2 d-flex justify-content-center" id="page">
             <div class="col-12">
                 <h1 class="text-white text-center title-banner-md title-section animate__animated animate__pulse">Cómics
                     <i class="fas fa-book-open"></i>
                 </h1>
             </div>
 
-            <div class="offset-md-5">
-                <div class="input-group-prepend">
-                    <button class="btn btn-danger dropdown-toggle text-white" type="button"
+            <div class="">
+                <div class="input-group-prepend ">
+                    <button class="btn btn-danger dropdown-toggle text-white " type="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ordenar cómics</button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item btn" (click)="titulo()">Por título</a>
@@ -32,10 +32,10 @@
 <section class="container">
     <div class="container-fluid">
         <div *ngIf="!resultado">
-            <p class="text-center h3 ml-4">Cargando ...</p>
+            <p class="text-center h3 ml-4 text-white">Cargando ...</p>
             <div class="d-flex justify-content-center">
                 <div class="spinner-border text-danger" role="status">
-                    <span class="sr-only">Loading...</span>
+                    <span class="sr-only text-white">Loading...</span>
                 </div>
             </div>
         </div>
@@ -55,7 +55,7 @@
 
                 </figure>
             </article>
-            <a href="/comics#page" class="offset-md-4 mt-3">
+            <a href="/comics#page" class="offset-md-4 m-auto">
                 <pagination-controls (pageChange)="p = $event" class="offset-md-4 mt-3" previousLabel="Anterior"
                     nextLabel="Siguiente" screenReaderPaginationLabel="Pagination">
                 </pagination-controls>

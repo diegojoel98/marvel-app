@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-8 offset-md-2 mb-3 mt-4" id="row">
-                <h1 class="text-center">Contacto</h1>
+                <h1 class="text-center text-white">Contacto</h1>
 
                 <form (ngSubmit)="onSubmit()" #userForm="ngForm">
                     <div class="form-group container">
@@ -46,9 +46,9 @@
                                 Otro
                             </label>
                         </div><br>
-                        <input type="submit" class="btn btn-success mr-3" value="Submit" name="submit"
+                        <input type="submit" class="btn btn-primary mr-3" value="Enviar" name="submit"
                             [disabled]="userForm.invalid" [ngClass]="{'cursor-no-drop': userForm.invalid}">
-                        <input type="reset" class="btn btn-warning text-white mr-3" value="Reset" name="reset"
+                        <input type="reset" class="btn btn-secondary text-white mr-3" value="Reiniciar" name="reset"
                             [disabled]="!name.touched && !lastname.touched && !comment.touched"
                             [ngClass]="{'cursor-no-drop': !name.touched && !lastname.touched && !comment.touched}"><br />
                         <br />

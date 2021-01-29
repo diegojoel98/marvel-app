@@ -66,11 +66,10 @@ a.nav-link:hover {
     font-size: 1.15em;
 }
 /*===Banner Marvel=======*/
-.banner, .banner-md,.banner-md2 {
+.banner, .banner-md, .banner-md2 {
     width: auto;
     display:flex;
     align-items: center;
-    align-items: center;    
     background-size: 110%;
 }
 
@@ -89,8 +88,10 @@ a.nav-link:hover {
     background-image: url("https://free4kwallpapers.com/uploads/originals/2018/05/03/avengers-infinity-minimal-wallpaper.jpg");
     background-color: #000d7e;  /* fallback for old browsers */
     background-blend-mode: screen;
+    background-attachment: fixed;
     height: 300px;
 }
+
 .banner-md2 {
     background-image: url("https://free4kwallpapers.com/uploads/originals/2019/10/16/illustration-of-avengers-ironman-wallpaper.jpg");
     background-color: #000742; 
@@ -99,6 +100,23 @@ a.nav-link:hover {
     background-size:cover;
     height: 300px;
 }
+@media screen and (max-width: 480px){
+    .banner{
+        height: 200px;
+        background-position: 60% 5%;
+        background-size: 175%;
+    }
+    .banner-md{
+        height: 200px;
+        background-size:contain;
+        background-position:center 20%;
+        background-size: 150%;
+    }
+    .banner-md2 {
+        height: 250px;
+    }
+}
+
 .space {
     height: 68px;
 }
@@ -107,6 +125,16 @@ a.nav-link:hover {
 }
 .title-banner-md {
     margin-top: 25px;
+}
+
+@media(max-width: 480px){
+    .title-banner{
+        font-size: 40px;
+    }
+    .title-banner-md {
+        margin-top: 25px;
+        font-size: 35px;
+    }
 }
 /*========================================*/
 .article-comic {
@@ -223,6 +251,16 @@ footer i:hover{
     width: 40px;
     margin-top: 7px;
 }
+
+@media(max-width: 480px){
+    footer{
+        font-size: 14px;
+    }
+    footer i{
+        padding: 15px 0;
+    }
+}
+
 /*====Busqueda========*/
 .comic-busqueda{
     display:flex;
