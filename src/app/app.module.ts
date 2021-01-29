@@ -15,6 +15,8 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider
 } from 'angularx-social-login';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -74,7 +76,9 @@ import { RegisterComponent } from './components/register/register.component';
     MomentModule,
     AngularFileUploaderModule,
     QRCodeModule,
-    SocialLoginModule
+    SocialLoginModule,
+    ReactiveFormsModule,
+    NgxCaptchaModule
   ],
   providers: [
     {

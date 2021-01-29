@@ -20,6 +20,9 @@
 
                     <p class="text-warning font-weight-bolder" *ngIf="error != null">{{error}}</p><br>
 
+                    <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" formControlName="recaptcha">
+                    </ngx-recaptcha2><br>
+
                     <input type="submit" class="btn btn-success mr-3" value="Iniciar sesión" name="submit"
                         [disabled]="loginForm.invalid" [ngClass]="{'cursor-no-drop': loginForm.invalid}">
 

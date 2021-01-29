@@ -21,19 +21,24 @@ export class LoginComponent implements OnInit {
   user: SocialUser;
   loggedIn: boolean;
 
+  siteKey: string;
+
   constructor(
     private _foroService: ForoService,
     private _router: Router,
-    private authService: SocialAuthService
+    private authService: SocialAuthService,
+
   ) {
     this.myuser = {
       email: '',
       password: ''
     };
     this.error = null;
+    this.siteKey = '6LcmlUAaAAAAAF2U6wmxUB8LwageM7QhMK_RKIHd';
   }
 
   ngOnInit(): void {
+
     this.authService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = (user != null);
@@ -77,5 +82,6 @@ export class LoginComponent implements OnInit {
   signOut(): void {
     this.authService.signOut();
   }
+
 
 }

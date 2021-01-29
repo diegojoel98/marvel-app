@@ -26,6 +26,7 @@
     "angularx-qrcode": "^11.0.0",
     "angularx-social-login": "^3.5.4",
     "express": "^4.17.1",
+    "ngx-captcha": "^9.0.0",
     "ngx-pagination": "^5.0.0",
     "path": "^0.12.7",
     "pdfmake": "^0.1.70",
