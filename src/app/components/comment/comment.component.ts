@@ -14,6 +14,8 @@ import * as pdfMake from 'pdfmake/build/pdfmake'
 import * as pdfFonts from 'pdfmake/build/vfs_fonts'
 //pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import * as XLSX from 'xlsx';
+import { SocialAuthService } from "angularx-social-login";
+import { SocialUser } from "angularx-social-login";
 
 @Component({
   selector: 'app-comment',
@@ -27,13 +29,18 @@ export class CommentComponent implements OnInit {
   public url: string
   public qrdata: boolean
   public myUrl: string
+  public userName: string
+  token: string
+  user: SocialUser;
+  loggedIn: boolean;
   fileName = 'Comentario.xlsx';
 
   constructor(
     private _foroService: ForoService,
     private _router: Router,
-    private _route: ActivatedRoute
-  ) { this.url = Global.url; this.qrdata = false; }
+    private _route: ActivatedRoute,
+    private authService: SocialAuthService
+  ) { this.url = Global.url; this.qrdata = false; this.userName = null; }
 
   ngOnInit(): void {
     this._route.params.subscribe(params => {
@@ -55,6 +62,26 @@ export class CommentComponent implements OnInit {
         }
       )
     });
+
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      this.loggedIn = (user != null);
+    });
+
+    this.token = this._foroService.getToken();
+
+    if (this.token != null && this.token != undefined) {
+      this._foroService.getUserLogged(this.token).subscribe(
+        res => {
+          this.userName = res.usuarioDB.nombre;
+          console.log('userName: ' + this.userName);
+        },
+        err => {
+          console.log(err);
+        }
+      )
+    }
+
   }
 
   delete(commentId) {

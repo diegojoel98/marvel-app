@@ -9,6 +9,8 @@
                 class="img-fluid mx-auto d-block height220" width="650px" height="220px" *ngIf="!comment?.image">
             <p class="mt-2 text-warning">{{comment?.date | amLocale: 'es' | amTimeAgo }}</p>
             <div class="mt-2 text-justify text-white">{{comment?.content}}</div>
+            <p *ngIf="user" class="mt-2 text-justify text-muted">Escrito por: {{user.name}}</p>
+            <p *ngIf="userName != null && !user" class="mt-2 text-justify text-muted">Escrito por:{{userName}}</p>
             <div class="mt-5">
                 <a [routerLink]="['/foro/editar-comentario', comment?._id]"
                     class="btn btn-warning text-white mr-4 font-weight-bold">
