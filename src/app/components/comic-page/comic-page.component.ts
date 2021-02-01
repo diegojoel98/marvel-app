@@ -5,7 +5,8 @@ import { HomeComicsService } from '../../services/home-comics.service';
 @Component({
   selector: 'app-comic-page',
   templateUrl: './comic-page.component.html',
-  styleUrls: ['./comic-page.component.css']
+  styleUrls: ['./comic-page.component.css'],
+  providers: [HomeComicsService]
 })
 export class ComicPageComponent implements OnInit {
 
@@ -13,7 +14,7 @@ export class ComicPageComponent implements OnInit {
   p: number = 1;
 
   constructor(
-    private _servicioHomeComics: HomeComicsService
+    private _servicioHomeComics: HomeComicsService,
   ) { }
 
   ngOnInit(): void {

@@ -15,12 +15,14 @@ export class VistaPersonajeComponent implements OnInit {
   public resultado: InterfaceHomePersonajes;
   public resultadoComics: InterfaceHomeComics;
   public queryId: string;
+  public checked: boolean;
+  personajes: InterfaceHomePersonajes[] = [];
 
   constructor(
     private _route: ActivatedRoute,
     private router: Router,
     private _vistaPersonajeService: VistaPersonajeService
-  ) { this.queryId = ""; }
+  ) { this.queryId = ""; this.checked = false; }
 
   ngOnInit(): void {
 
@@ -28,6 +30,12 @@ export class VistaPersonajeComponent implements OnInit {
       this.queryId = params.get('id');
     })
     console.log(this.queryId);
+
+    console.log(this._vistaPersonajeService.isFavPers(parseInt(this.queryId, 10)));
+
+    if (this._vistaPersonajeService.isFavPers(parseInt(this.queryId, 10))) {
+      this.checked = true;
+    }
 
 
     this._vistaPersonajeService.personaje(this.queryId).then((response) => {
@@ -48,5 +56,21 @@ export class VistaPersonajeComponent implements OnInit {
     this.resultado = null;
     this.router.navigate(['/personaje/' + this.queryId]);
   }
+
+  addRemoveFav(fav) {
+    if (this.checked) this.checked = false;
+    else this.checked = true;
+    if (this._vistaPersonajeService.toggleFav(fav)) {
+      //this.showInfo('Added to favourites');
+      console.log('Added to fav');
+    } else {
+      //this.showWarning('Removed from favourites');
+      console.log('Removed from fav');
+
+    }
+  }
+
+
+
 
 }

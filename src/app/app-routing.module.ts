@@ -16,6 +16,7 @@ import { CreateCommentComponent } from './components/create-comment/create-comme
 import { CommentEditComponent } from './components/comment-edit/comment-edit.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { FavoritosComponent } from './components/favoritos/favoritos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'foro/editar-comentario/:id', component: CommentEditComponent },
   { path: 'iniciar-sesion', component: LoginComponent },
   { path: 'registrarse', component: RegisterComponent },
+  { path: 'favoritos', component: FavoritosComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

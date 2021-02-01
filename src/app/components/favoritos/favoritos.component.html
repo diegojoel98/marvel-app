@@ -1,0 +1,53 @@
+<section class="container">
+    <div class="container-fluid">
+        <h2 class="text-center text-white mt-3 mb-4 text-description">Mis favoritos <i
+                style="color: red;font-size:1.2em" class="fas fa-heart"></i></h2>
+        <h3 class="text-center text-white mt-5">Cómics Favoritos</h3>
+        <div *ngIf="!comics || comics.length == 0">
+            <p class="text-center ml-4 text-white">Parece que aún no tienes cómics favoritos, ve a la página de <a
+                    routerLink="/comics">cómics</a> y guarda tus favoritos</p>
+        </div>
+        <div class="row">
+            <article class="col-md-4 col-sm-6 mb-3 article-comic" *ngFor="let elem of comics">
+                <div class="ml-1">
+                    <figure>
+                        <a [routerLink]="['/comic/', elem.id]">
+                            <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.title}}"
+                                class="img-fluid mx-auto d-block">
+                        </a>
+                        <a [routerLink]="['/comic/', elem.id]" class="text-center btn text-white title-comic">
+                            <p>{{elem.title}}
+                            </p>
+                        </a>
+                    </figure>
+                </div>
+            </article>
+
+        </div>
+    </div><br>
+</section>
+<section>
+    <div class="container">
+        <h3 class="text-center text-white mt-3 mb-1">Personajes Favoritos</h3>
+        <div *ngIf="!personajes || personajes.length == 0">
+            <p class="text-center ml-4 text-white">¿No tienes un personaje favorito? Todos tenemos al menos uno, ve a
+                la página de <a routerLink="/personajes">personajes</a> y marca tus favoritos</p>
+        </div>
+        <div class="row">
+            <article class="col-md-4 col-6 mb-3 all" *ngFor="let elem of personajes">
+                <div [routerLink]="['/personaje/', elem.id]" class="margin article-comic blur shadow-lg pointer ">
+                    <figure>
+                        <a [routerLink]="['/personaje/', elem.id]">
+                            <img src="{{elem.thumbnail.path}}.{{elem.thumbnail.extension}}" alt="{{elem.name}}"
+                                class="img-fluid img-md">
+                        </a>
+
+                        <a [routerLink]="['/personaje/', elem.id]" class="title-comic  mx-auto  btn text-white ">
+                            <p>{{elem.name}}</p>
+                        </a>
+                    </figure>
+                </div>
+            </article>
+        </div>
+    </div><br>
+</section>

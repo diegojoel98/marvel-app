@@ -49,6 +49,7 @@
                 <button class="btn btn-secondary dropdown-toggle text-white" type="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">{{user.name}}</button>
                 <div class="dropdown-menu left">
+                    <a class="dropdown-item btn my-2 my-sm-0" routerLink="/favoritos">Ver mis favoritos</a>
                     <a class="dropdown-item btn my-2 my-sm-0" (click)="signOut()">Cerrar sesión</a>
                 </div>
             </div>
@@ -56,6 +57,7 @@
                 <button class="btn btn-success dropdown-toggle text-white" type="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">{{userName}}</button>
                 <div class="dropdown-menu left">
+                    <a class="dropdown-item btn my-2 my-sm-0" routerLink="/favoritos">Ver mis favoritos</a>
                     <a class="dropdown-item btn my-2 my-sm-0" (click)="logout()">Cerrar sesión</a>
                 </div>
             </div>

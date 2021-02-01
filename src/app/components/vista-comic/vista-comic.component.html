@@ -7,7 +7,12 @@
             </a>
         </div>
         <div class="fila1">
-            <a class=" title-section title-vista text-center btn text-white">{{elem.title | uppercase}}</a>
+            <a class=" title-section title-vista text-center btn text-white">{{elem.title | uppercase}} <i
+                    *ngIf="!checked" (click)="addRemoveFav(elem)" style="color: red;font-size:1.2em"
+                    class="far fa-heart mx-auto d-block"></i>
+                <i *ngIf="checked" (click)="addRemoveFav(elem)" style="color: red;font-size:1.2em"
+                    class="fas fa-heart mx-auto d-block"></i></a>
+
             <p class=" font-weight-bold text-center text-white text-description">{{elem.description}}</p>
             <p class=" font-weight-bold text-center  text-white text-description">{{elem.variantDescription}}</p>
             <div class="fila2">

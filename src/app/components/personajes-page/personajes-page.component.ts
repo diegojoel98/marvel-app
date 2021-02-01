@@ -13,11 +13,10 @@ export class PersonajesPageComponent implements OnInit {
   p: number = 1;
 
   constructor(
-    private _servicioHomePersonajes: HomePersonajesService
+    private _servicioHomePersonajes: HomePersonajesService,
   ) { }
 
   ngOnInit(): void {
-
     this._servicioHomePersonajes.pagePersonajes('').then((response) => {
       this.resultado = response;
     }, (error) => {

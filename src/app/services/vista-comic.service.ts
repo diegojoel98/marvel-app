@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { InterfaceHomeComics } from '../interfaces/home-comics';
 import { InterfaceHomePersonajes } from '../interfaces/home-personajes';
 import { HttpClient } from '@angular/common/http';
+import * as _ from 'lodash';
 
 @Injectable({
   providedIn: 'root'
@@ -50,5 +51,37 @@ export class VistaComicService {
     })
     return promise;
   }
+
+  toggleFav(fav): boolean {
+    let data = [];
+    console.log('favService: ' + fav);
+    data = JSON.parse(localStorage.getItem('FavComics')) || [];
+    if (_.find(data, { 'title': fav.title })) {
+      data = _.reject(data, { 'title': fav.title });
+      localStorage.setItem('FavComics', JSON.stringify(data));
+      return false;
+    } else {
+      data = _.concat(data, fav);
+      localStorage.setItem('FavComics', JSON.stringify(data));
+      return true;
+    }
+  }
+
+  getPosts(): any {
+    return JSON.parse(localStorage.getItem('FavComics'));
+  }
+
+  isFavComic(id): boolean {
+    let data = [];
+    data = JSON.parse(localStorage.getItem('FavComics'));
+    if (_.find(data, { 'id': id })) {
+      console.log('id: ' + id);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+
 
 }
