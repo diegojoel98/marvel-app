@@ -1,3 +1,8 @@
+/**
+ * login.component.ts
+ * Componente para iniciar sesión
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { ForoService } from '../../services/foro-service.service';
 import { Router } from '@angular/router';

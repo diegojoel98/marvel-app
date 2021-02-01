@@ -1,3 +1,8 @@
+/**
+ * page-not-found.component.ts
+ * Componente para redirigir si se quiere acceder a una página que no existe
+ */
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

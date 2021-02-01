@@ -1,3 +1,8 @@
+/**
+ * buscar-personaje.service.ts
+ * Servicio para buscar personajes usando una api externa y la query del usuario
+ */
+
 import { Injectable } from '@angular/core';
 import { InterfaceHomePersonajes } from '../interfaces/home-personajes';
 import { HttpClient } from '@angular/common/http';

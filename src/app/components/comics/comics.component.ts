@@ -1,3 +1,7 @@
+/**
+ * comics.component.ts
+ * Componente donde se muestran 5 cómics en la pagina de inicio
+ */
 import { Component, OnInit } from '@angular/core';
 import { InterfaceHomeComics } from '../../interfaces/home-comics';
 import { HomeComicsService } from '../../services/home-comics.service';

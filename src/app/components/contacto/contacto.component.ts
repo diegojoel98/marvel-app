@@ -1,3 +1,8 @@
+/**
+ * contacto.component.ts
+ * Componente con un formulario para ponerse en contacto con nosotros
+ */
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

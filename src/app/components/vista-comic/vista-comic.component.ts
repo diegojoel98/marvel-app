@@ -1,3 +1,8 @@
+/**
+ * vista-comic.component.ts
+ * Componente que muestra la vista de un cómic en particular
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { InterfaceHomeComics } from '../../interfaces/home-comics';
 import { VistaComicService } from '../../services/vista-comic.service';
@@ -57,10 +62,8 @@ export class VistaComicComponent implements OnInit {
     if (this.checked) this.checked = false;
     else this.checked = true;
     if (this._vistaComicService.toggleFav(fav)) {
-      //this.showInfo('Added to favourites');
       console.log('Added to fav');
     } else {
-      //this.showWarning('Removed from favourites');
       console.log('Removed from fav');
 
     }

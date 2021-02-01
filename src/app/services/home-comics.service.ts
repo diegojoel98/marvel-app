@@ -1,3 +1,7 @@
+/**
+ * home-comics.service.ts
+ * Servicio para mostrar cómics
+ */
 import { Injectable } from '@angular/core';
 import { InterfaceHomeComics } from '../interfaces/home-comics';
 import { HttpClient } from '@angular/common/http';

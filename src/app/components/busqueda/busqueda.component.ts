@@ -1,3 +1,8 @@
+/**
+ * busqueda.component.ts
+ * Componente para buscar comics y personajes
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { InterfaceHomeComics } from '../../interfaces/home-comics';
 import { BuscarComicService } from '../../services/buscar-comic.service';
@@ -22,13 +27,6 @@ export class BusquedaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
-    /*this._buscarComicService.busquedaComic('spider-man').then((response) => {
-      this.resultado = response;
-    }, (error) => {
-      alert("Error: " + error.statusText)
-    })*/
-
   }
 
   busquedaComic = () => {

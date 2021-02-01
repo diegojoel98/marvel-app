@@ -1,3 +1,8 @@
+/**
+ * personajes-page.component.ts
+ * Componente de la página donde se listan todos los personajes 
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { InterfaceHomePersonajes } from '../../interfaces/home-personajes';
 import { HomePersonajesService } from '../../services/home-personajes.service';

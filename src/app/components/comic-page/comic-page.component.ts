@@ -1,3 +1,8 @@
+/**
+ * comic-page.component.ts
+ * Componente donde se muestran todos los cómics
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { InterfaceHomeComics } from '../../interfaces/home-comics';
 import { HomeComicsService } from '../../services/home-comics.service';

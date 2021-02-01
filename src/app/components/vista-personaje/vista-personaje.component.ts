@@ -1,3 +1,8 @@
+/**
+ * vosta-personaje.component.ts
+ * Componente para mostrar un personaje en específico 
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { InterfaceHomePersonajes } from '../../interfaces/home-personajes';
 import { VistaPersonajeService } from '../../services/vista-personaje.service';
@@ -61,10 +66,8 @@ export class VistaPersonajeComponent implements OnInit {
     if (this.checked) this.checked = false;
     else this.checked = true;
     if (this._vistaPersonajeService.toggleFav(fav)) {
-      //this.showInfo('Added to favourites');
       console.log('Added to fav');
     } else {
-      //this.showWarning('Removed from favourites');
       console.log('Removed from fav');
 
     }

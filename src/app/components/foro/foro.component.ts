@@ -1,3 +1,8 @@
+/**
+ * foro.component.ts
+ * Página principal del foro
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { ForoService } from '../../services/foro-service.service';

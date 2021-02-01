@@ -1,3 +1,9 @@
+
+/**
+ * home.component.ts
+ * Componente home donde se carga una lista pequeña de cómics y personajes
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { InterfaceHomePersonajes } from '../../interfaces/home-personajes';
 import { HomePersonajesService } from '../../services/home-personajes.service';

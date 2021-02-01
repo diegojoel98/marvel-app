@@ -1,3 +1,8 @@
+/**
+ * banner.component.ts
+ * Componente para mostrar el banner
+ */
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

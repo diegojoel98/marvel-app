@@ -1,3 +1,7 @@
+/**
+ * home-personajes.ts
+ * Interfaz de personajes, basada en la response de la api de marvel
+ */
 export interface InterfaceHomePersonajes {
     "code": number,
     "status": string,

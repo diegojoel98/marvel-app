@@ -1,3 +1,7 @@
+/**
+ * register.component.ts
+ * Componente para registrarse en la aplicación y guardar el usuario en la base de datos
+ */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ForoService } from '../../services/foro-service.service';

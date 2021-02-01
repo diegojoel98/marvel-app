@@ -1,3 +1,8 @@
+/**
+ * comment.component.ts
+ * Componente de un comentario en específico
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Global } from '../../services/global';

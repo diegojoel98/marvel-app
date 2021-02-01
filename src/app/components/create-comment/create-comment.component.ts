@@ -1,3 +1,8 @@
+/**
+ * create-comment.component.ts
+ * Componente para crear un comentario
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { ForoModel } from '../../models/foro';
 import { ForoService } from '../../services/foro-service.service';
@@ -76,9 +81,6 @@ export class CreateCommentComponent implements OnInit {
     this.comment.image = data.body.image;
     console.log(this.comment.image);
   }
-  //let imageData = JSON.parse(data.response);
-  //this.article.img = imageData.img;
-  //console.log(imageData.img);
 
 
 }

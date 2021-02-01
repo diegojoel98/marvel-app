@@ -1,3 +1,7 @@
+/**
+ * buscar-comic.service.ts
+ * Servicio para mostrar personajes
+ */
 import { Injectable } from '@angular/core';
 import { InterfaceHomePersonajes } from '../interfaces/home-personajes';
 import { HttpClient } from '@angular/common/http';

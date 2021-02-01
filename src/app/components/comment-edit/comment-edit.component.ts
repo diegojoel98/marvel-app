@@ -1,3 +1,8 @@
+/**
+ * comment-edit.component.ts
+ * Componente para editar un comentario
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { ForoModel } from '../../models/foro';
 import { ForoService } from '../../services/foro-service.service';

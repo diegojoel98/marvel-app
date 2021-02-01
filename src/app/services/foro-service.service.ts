@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ForoModel } from '../models/foro';
 import { UserModel } from '../models/user';
+/**
+ * foro-service.service.ts
+ * Servicio que contiene los métodos usados en el servicio
+ */
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Global } from '../services/global';

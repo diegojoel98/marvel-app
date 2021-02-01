@@ -1,6 +1,10 @@
+/**
+ * buscar-comic.service.ts
+ * Servicio para buscar cómics, donde se utilizan los endpoints de una api externa
+ */
+
 import { Injectable } from '@angular/core';
 import { InterfaceHomeComics } from '../interfaces/home-comics';
-import { InterfaceHomePersonajes } from '../interfaces/home-personajes';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({

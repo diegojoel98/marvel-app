@@ -1,3 +1,8 @@
+/**
+ * favoritos.component.ts
+ * Componente donde se mostrarán los favoritos guardados
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { InterfaceHomePersonajes } from '../../interfaces/home-personajes';
 import { VistaPersonajeService } from '../../services/vista-personaje.service';

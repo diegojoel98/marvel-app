@@ -1,3 +1,7 @@
+/**
+ * personajes.component.ts
+ * Componente para mostrar 5 personajes en la Home
+ */
 import { Component, OnInit } from '@angular/core';
 import { InterfaceHomePersonajes } from '../../interfaces/home-personajes';
 import { HomePersonajesService } from '../../services/home-personajes.service';

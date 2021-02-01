@@ -1,3 +1,8 @@
+/**
+ * vista-comic.service.ts
+ * Servicio para mostrar un cómic en particular
+ */
+
 import { Injectable } from '@angular/core';
 import { InterfaceHomeComics } from '../interfaces/home-comics';
 import { InterfaceHomePersonajes } from '../interfaces/home-personajes';

@@ -1,4 +1,9 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+/**
+ * favoritos.component.ts
+ * Componente para la barra de navegación, todos los demás componentes lo comparten
+ */
+
+import { Component, OnInit } from '@angular/core';
 import { ForoService } from 'src/app/services/foro-service.service';
 import { Router } from '@angular/router';
 import { SocialAuthService } from "angularx-social-login";

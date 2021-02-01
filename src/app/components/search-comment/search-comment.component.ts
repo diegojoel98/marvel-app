@@ -1,3 +1,8 @@
+/**
+ * search-comment.component.ts
+ * Componente de búsqueda para los comentarios
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { ForoService } from '../../services/foro-service.service';

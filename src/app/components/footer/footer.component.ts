@@ -1,3 +1,7 @@
+/**
+ * footer.component.ts
+ * Pie de página del sitio web, lo comparten todos los componentes
+ */
 import { Component, OnInit } from '@angular/core';
 import { InterfaceHomeComics } from '../../interfaces/home-comics';
 import { HomeComicsService } from '../../services/home-comics.service';

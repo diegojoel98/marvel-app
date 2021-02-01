@@ -1,3 +1,8 @@
+/**
+ * home-comics.ts
+ * Interfaz de cómics, basada en la response de la api de marvel
+ */
+
 export interface InterfaceHomeComics {
     "code": number,
     "status": string,
